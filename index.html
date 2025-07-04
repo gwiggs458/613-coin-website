@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>613 Coin - Where Angel Numbers Meet Crypto</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a0d33, #2d1b4e, #4a2c7a, #6d3faa);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .floating-numbers {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+        .floating-number {
+            position: absolute; color: rgba(255, 215, 0, 0.1);
+            font-size: 2rem; font-weight: bold;
+            animation: float 15s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        .header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
+            border-bottom: 3px solid #FFD700; z-index: 1000;
+            padding: 1rem 2rem; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+        .nav {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .logo {
+            display: flex; align-items: center; font-size: 1.4rem;
+            font-weight: bold; color: #FFD700;
+        }
+        .coin-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin-right: 12px;
+            font-size: 16px; font-weight: 900; color: #1a0d33;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            border: 2px solid #6d3faa;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+        }
+        .coin-icon::after {
+            content: '👼'; position: absolute; right: -8px; top: -5px;
+            font-size: 18px; z-index: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        .nav-links {
+            display: flex; gap: 1rem; flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white; text-decoration: none; transition: all 0.3s;
+            padding: 0.5rem 1rem; border-radius: 8px;
+            font-size: 0.9rem; font-weight: bold;
+            border: 1px solid transparent;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #FFD700; background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700; transform: translateY(-2px);
+        }
+        .main-content {
+            margin-top: 120px; padding: 2rem;
+            max-width: 1400px; margin-left: auto; margin-right: auto;
+            position: relative; z-index: 2;
+        }
+        .hero-section {
+            text-align: center; margin-bottom: 3rem;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(109, 63, 170, 0.1));
+            border: 2px solid #FFD700; border-radius: 25px;
+            padding: 3rem 2rem; position: relative; overflow: hidden;
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-coin {
+            width: 120px; height: 120px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 36px; font-weight: 900;
+            color: #1a0d33; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border: 3px solid #6d3faa;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            margin: 0 auto 1rem; position: relative;
+        }
+        .hero-coin::after {
+            content: '👼'; position: absolute; right: -15px; top: -10px;
+            font-size: 40px; z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .page-title {
+            font-size: 3.5rem; margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFFF00, #FFD700, #FFFF00);
+            background-size: 400% 400%; animation: shimmer 3s ease-in-out infinite;
+            background-clip: text; -webkit-background-clip: text; color: transparent;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 255, 0, 0.6);
+            font-weight: 900; filter: brightness(1.3);
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .angel-quote {
+            font-size: 1.3rem; color: #FFFF00; margin-bottom: 1rem;
+            font-style: italic; font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 0, 0.7), 2px 2px 4px rgba(0, 0, 0, 0.5);
+            filter: brightness(1.2);
+        }
+        .page-subtitle {
+            font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; color: #E8E8FF;
+        }
+        .coin-description {
+            background: linear-gradient(45deg, rgba(255, 255, 0, 0.15), rgba(255, 215, 0, 0.1));
+            border: 3px solid #FFFF00; border-radius: 15px;
+            padding: 1.5rem; margin: 2rem auto; max-width: 700px;
+            text-align: center; box-shadow: 0 0 30px rgba(255, 255, 0, 0.3);
+        }
+        .coin-description-text {
+            font-size: 1.1rem; line-height: 1.6; color: #FFFFFF;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        .content-grid {
+            display: grid; grid-template-columns: 2fr 1fr;
+            gap: 2rem; margin-bottom: 3rem;
+        }
+        .main-feed {
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #FFD700;
+            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.6rem; color: #FFD700; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            border-bottom: 2px solid #FFD700; padding-bottom: 0.5rem;
+        }
+        .feed-item {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(109, 63, 170, 0.05));
+            border-radius: 15px; padding: 1.5rem; margin-bottom: 1.5rem;
+            border-left: 5px solid #6d3faa; transition: all 0.3s ease;
+            cursor: pointer; position: relative; overflow: hidden;
+        }
+        .feed-item:hover {
+            transform: translateX(10px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(109, 63, 170, 0.1));
+            border-left-color: #FFD700; box-shadow: 0 10px 30px rgba(109, 63, 170, 0.3);
+        }
+        .feed-header {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; margin-bottom: 0.8rem;
+        }
+        .feed-title {
+            font-weight: bold; color: #FFD700; font-size: 1.1rem;
+            line-height: 1.3; margin-right: 1rem;
+        }
+        .feed-time {
+            font-size: 0.8rem; opacity: 0.7; color: #6d3faa;
+            font-weight: bold; white-space: nowrap;
+        }
+        .feed-content {
+            line-height: 1.6; margin-bottom: 0.8rem; color: #E8E8FF;
+        }
+        .feed-source {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .source-name {
+            font-size: 0.9rem; color: #6d3faa; font-weight: bold;
+        }
+        .angel-wisdom {
+            font-size: 0.8rem; color: #FFD700; font-style: italic; opacity: 0.8;
+        }
+        .sidebar {
+            display: flex; flex-direction: column; gap: 2rem;
+        }
+        .sidebar-section {
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #6d3faa;
+            border-radius: 15px; padding: 1.5rem; backdrop-filter: blur(10px);
+        }
+        .token-info {
+            text-align: center;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(109, 63, 170, 0.1));
+            border: 2px solid #FFD700;
+        }
+        .token-logo {
+            width: 100px; height: 100px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 24px; font-weight: 900;
+            color: #1a0d33; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 1rem; border: 3px solid #6d3faa;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            position: relative;
+        }
+        .token-logo::after {
+            content: '👼'; position: absolute; right: -12px; top: -8px;
+            font-size: 32px; z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .about-613 {
+            background: rgba(255, 215, 0, 0.1); border: 1px solid #FFD700;
+            border-radius: 10px; padding: 1rem; margin-bottom: 1rem; text-align: left;
+        }
+        .about-613-text {
+            font-size: 0.9rem; line-height: 1.5; color: #E8E8FF;
+        }
+        .market-stats {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;
+        }
+        .stat-item {
+            text-align: center; background: rgba(255, 255, 255, 0.05);
+            padding: 1rem; border-radius: 10px; border: 1px solid #6d3faa;
+        }
+        .stat-number {
+            font-size: 1.3rem; font-weight: bold; color: #FFD700;
+        }
+        .stat-label {
+            font-size: 0.8rem; opacity: 0.8; margin-top: 0.3rem;
+        }
+        .angel-quotes {
+            background: linear-gradient(45deg, rgba(109, 63, 170, 0.1), rgba(255, 215, 0, 0.05));
+        }
+        .quote-item {
+            background: rgba(0, 0, 0, 0.3); border-left: 4px solid #FFD700;
+            padding: 1rem; margin-bottom: 1rem; border-radius: 8px;
+            font-style: italic; color: #FFD700;
+        }
+        .quote-author {
+            text-align: right; margin-top: 0.5rem; font-size: 0.8rem;
+            color: #6d3faa; font-weight: bold;
+        }
+        .refresh-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
+            border: none; padding: 0.6rem 1.2rem; border-radius: 20px;
+            font-size: 0.9rem; font-weight: bold; cursor: pointer;
+            transition: all 0.3s ease; margin-left: 1rem;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        .refresh-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+        .refresh-btn:disabled {
+            opacity: 0.6; cursor: not-allowed; transform: none;
+        }
+        .loading-indicator {
+            text-align: center; padding: 3rem; color: #FFD700;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .message-popup {
+            position: fixed; top: 20px; right: 20px; padding: 1rem 2rem;
+            border-radius: 10px; color: white; font-weight: bold;
+            z-index: 10001; opacity: 0; transform: translateX(100px);
+            transition: all 0.3s ease;
+        }
+        .message-popup.success {
+            background: linear-gradient(45deg, #6d3faa, #9d6dd6);
+        }
+        .message-popup.info {
+            background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
+        }
+        .message-popup.show { opacity: 1; transform: translateX(0); }
+        .footer {
+            background: rgba(0, 0, 0, 0.95); border-top: 3px solid #FFD700;
+            padding: 2rem; margin-top: 3rem; text-align: center;
+        }
+        .footer-about {
+            background: rgba(109, 63, 170, 0.1); border: 2px solid #6d3faa;
+            border-radius: 15px; padding: 2rem; margin-bottom: 2rem;
+            max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+        .footer-about h3 {
+            color: #FFD700; text-align: center; margin-bottom: 1rem; font-size: 1.4rem;
+        }
+        .footer-about-text {
+            font-size: 1.1rem; line-height: 1.6; color: #E8E8FF; text-align: center;
+        }
+        .disclaimer {
+            background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700;
+            border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem;
+            color: #FFD700; font-weight: bold;
+        }
+        .footer-quote {
+            color: #6d3faa; font-style: italic; margin-bottom: 1rem; font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .page-title { font-size: 2.2rem; }
+            .market-stats { grid-template-columns: 1fr; }
+            .nav-links { gap: 0.5rem; }
+            .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+        }
+        @keyframes fadeInFeed {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-numbers" id="floatingNumbers"></div>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="coin-icon">613</div>
+                613 COIN
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">✨ LIVE FEED</a>
+                <a href="#angel-wisdom">👼 ANGEL WISDOM</a>
+                <a href="#token-info">🪙 613 TOKEN</a>
+                <a href="#disclaimer">⚠️ DISCLAIMER</a>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-coin">613</div>
+                <h1 class="page-title">613 COIN</h1>
+                <div class="angel-quote">"Where Angel Numbers Meet Crypto"</div>
+                <p class="page-subtitle">A Meme Cryptocurrency Infused with Symbolism and Purpose</p>
+                <div style="color: #6d3faa; font-size: 14px; font-weight: bold;">👼 Angel Number • 💎 Polygon Network • ✨ Spiritual Significance</div>
+                <div class="coin-description">
+                    <div class="coin-description-text">
+                        <strong style="color: #FFD700;">613 Coin</strong> is a unique meme cryptocurrency that combines the fun and humor of internet culture with profound spiritual and cultural significance. Rooted in the symbolism of the angel number 613 and its spiritual ties to the 613 commandments, this project seeks to create a decentralized, community-driven token that resonates with a sense of purpose.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="content-grid">
+            <section class="main-feed">
+                <h2 class="section-title">
+                    ✨ LIVE CRYPTO GUIDANCE
+                    <button class="refresh-btn" onclick="refreshFeed()">👼 Refresh Feed</button>
+                </h2>
+                <div class="feed-container" id="feedContainer"></div>
+            </section>
+            <aside class="sidebar">
+                <section class="sidebar-section token-info">
+                    <h3 class="section-title" style="justify-content: center; color: #FFD700;">🪙 613 COIN</h3>
+                    <div class="token-logo">613</div>
+                    <div class="about-613">
+                        <div class="about-613-text">
+                            <strong style="color: #FFD700;">613 Coin</strong> draws inspiration from the angel number 613, which symbolizes guidance, balance, and opportunities, and the biblical 613 commandments that form the moral and ethical foundations of life.
+                        </div>
+                    </div>
+                    <div style="font-size: 0.9rem; margin-bottom: 1rem; color: #6d3faa;">Polygon • Spiritual Symbolism</div>
+                    <div class="market-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">613B</div>
+                            <div class="stat-label">Total Supply</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">👼</div>
+                            <div class="stat-label">Angel Guided</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">✨</div>
+                            <div class="stat-label">Pure Purpose</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">🚀</div>
+                            <div class="stat-label">Community Driven</div>
+                        </div>
+                    </div>
+                    <a href="https://uniswap.org" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #6d3faa, #9d6dd6); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: transform 0.3s; font-size: 0.9rem;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">💫 TRADE ON UNISWAP</a>
+                </section>
+                <section class="sidebar-section angel-quotes">
+                    <h3 class="section-title" style="color: #FFD700;">👼 ANGEL WISDOM</h3>
+                    <div class="quote-item">
+                        "The angel number 613 represents spiritual alignment, optimism, and new opportunities."
+                        <div class="quote-author">- Angel Number 613</div>
+                    </div>
+                    <div class="quote-item">
+                        "613 commandments represent the moral and ethical framework for leading a meaningful life."
+                        <div class="quote-author">- Spiritual Significance</div>
+                    </div>
+                    <div class="quote-item">
+                        "Order, accountability, and wisdom guide the philosophy of 613 Coin."
+                        <div class="quote-author">- Community Values</div>
+                    </div>
+                    <div class="quote-item">
+                        "Where memes meet meaning, and humor meets hope."
+                        <div class="quote-author">- 613 Coin Vision</div>
+                    </div>
+                </section>
+                <section class="sidebar-section">
+                    <h3 class="section-title" style="color: #6d3faa;">✨ SPIRITUAL GUIDANCE</h3>
+                    <div style="background: rgba(109, 63, 170, 0.1); padding: 1rem; border-radius: 10px; border: 1px solid #6d3faa;">
+                        <div style="font-weight: bold; color: #FFD700; margin-bottom: 0.5rem;">🎯 Today's Focus:</div>
+                        <div style="font-size: 0.9rem; line-height: 1.5;">
+                            • Embrace balance in all decisions<br>
+                            • Seek opportunities for growth<br>
+                            • Foster community connections<br>
+                            • Practice ethical principles
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-about">
+            <h3>About 613 Coin</h3>
+            <div class="footer-about-text">
+                <strong style="color: #FFD700;">613 Coin</strong> is a unique meme cryptocurrency that combines the fun and humor of internet culture with profound spiritual and cultural significance. Rooted in the symbolism of the angel number 613 and its spiritual ties to the 613 commandments, this project seeks to create a decentralized, community-driven token that resonates with a sense of purpose.
+            </div>
+        </div>
+        <div class="disclaimer">
+            ⚠️ ENTERTAINMENT ONLY - 613 Coin is a meme cryptocurrency created for entertainment purposes. It is not intended to be a financial investment or a means of generating profit. The value of 613 Coin can be highly volatile and may fluctuate significantly. Always conduct your own research before investing. 👼✨
+        </div>
+        <div class="footer-quote">
+            "Join the 613 Coin Community, where memes meet meaning, and humor meets hope."
+        </div>
+        <div style="color: #ccc; font-size: 0.9rem;">
+            © 2025 613 Coin • Built for the community with 👼 guidance and ✨ purpose
+        </div>
+    </footer>
+    <script>
+        const config = {
+            feeds: ['https://cointelegraph.com/rss','https://decrypt.co/feed','https://www.coindesk.com/arc/outboundfeeds/rss/','https://cryptonews.com/rss.xml','https://blockworks.co/rss.xml'],
+            proxy: 'https://api.rss2json.com/v1/api.json?rss_url=',
+            fallback: [
+                {title:"👼 613 Coin: Angel Numbers Guide Crypto Journey",content:"The power of angel number 613 continues to inspire crypto enthusiasts as 613 Coin builds a community focused on spiritual alignment and financial opportunities...",publishedAt:new Date().toISOString(),source:"Angel Guidance",url:"#",wisdom:"Seek balance in all crypto decisions"},
+                {title:"✨ Polygon Network Embraces Spiritual Crypto Projects",content:"Entertainment-focused tokens with deeper meaning show remarkable community engagement on Polygon network...",publishedAt:new Date(Date.now()-2*60*60*1000).toISOString(),source:"Spiritual Crypto",url:"#",wisdom:"True value comes from purpose and community"}
+            ]
+        };
+        let cache=[], lastUpdate=0, loading=false;
+        const wisdoms = ["Trust the divine timing of opportunity","Balance guides all wise decisions","Community strength manifests abundance","Purpose transcends pure profit","Spiritual alignment brings prosperity"];
+        function wisdom() { return wisdoms[Math.floor(Math.random()*wisdoms.length)]; }
+        function time(d) { try { const diff = Math.floor((new Date()-new Date(d))/60000); return diff<60 ? diff+'m ago' : diff<1440 ? Math.floor(diff/60)+'h ago' : Math.floor(diff/1440)+'d ago'; } catch { return 'Now'; } }
+        function display(items) {
+            const c = document.getElementById('feedContainer');
+            if (!c) return;
+            c.innerHTML = items.map((a,i) => `<div class="feed-item" style="animation-delay:${i*0.15}s;opacity:0;animation:fadeInFeed 0.8s ease forwards;"><div class="feed-header"><div class="feed-title">${a.title}</div><div class="feed-time">${time(a.publishedAt)}</div></div><div class="feed-content">${a.content}</div><div class="feed-source"><div class="source-name">✨ ${a.source}</div><div class="angel-wisdom">"${a.wisdom||wisdom()}"</div></div></div>`).join('');
+        }
+        function loading(show) {
+            const c = document.getElementById('feedContainer');
+            if (!c) return;
+            if (show) c.innerHTML = '<div class="loading-indicator"><div style="font-size:3rem;margin-bottom:1.5rem;">👼</div><div style="font-size:1.4rem;margin-bottom:0.8rem;color:#FFD700;">Angels Gathering Cosmic Wisdom...</div><div style="font-size:1rem;opacity:0.8;">Consulting spiritual guides and market oracles...</div></div>';
+        }
+        async function loadFeed() {
+            if (loading) return;
+            loading = true;
+            const c = document.getElementById('feedContainer');
+            if (!c) { loading=false; return; }
+            loading(true);
+            try {
+                const now = Date.now();
+                if (cache.length && now-lastUpdate < 600000) {
+                    display(cache); loading(false); loading=false; return;
+                }
+                display(config.fallback);
+            } catch (e) {
+                display(config.fallback);
+            }
+            loading(false); loading=false;
+        }
+        async function refreshFeed() {
+            cache=[]; lastUpdate=0;
+            const btn = document.querySelector('.refresh-btn');
+            if (btn) { btn.textContent='👼 Channeling...'; btn.disabled=true; setTimeout(()=>{btn.textContent='👼 Refresh Feed';btn.disabled=false;},3000); }
+            await loadFeed();
+        }
+        function floatingNumbers() {
+            const c = document.getElementById('floatingNumbers');
+            const nums = ['613','6','1','3','✨','👼','🌟'];
+            setInterval(()=>{
+                if (Math.random()<0.3) {
+                    const n = document.createElement('div');
+                    n.className = 'floating-number';
+                    n.textContent = nums[Math.floor(Math.random()*nums.length)];
+                    n.style.left = Math.random()*100+'%';
+                    n.style.animationDuration = (10+Math.random()*10)+'s';
+                    c.appendChild(n);
+                    setTimeout(()=>n.remove(),20000);
+                }
+            },2000);
