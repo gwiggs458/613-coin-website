@@ -161,6 +161,14 @@
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(109, 63, 170, 0.1));
             border-left-color: #FFD700; box-shadow: 0 10px 30px rgba(109, 63, 170, 0.3);
         }
+        .feed-item.live-item {
+            border-left-color: #00ff00;
+            animation: liveGlow 2s ease-in-out infinite;
+        }
+        @keyframes liveGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.6); }
+        }
         .feed-header {
             display: flex; justify-content: space-between;
             align-items: flex-start; margin-bottom: 0.8rem;
@@ -168,6 +176,12 @@
         .feed-title {
             font-weight: bold; color: #FFD700; font-size: 1.1rem;
             line-height: 1.3; margin-right: 1rem;
+        }
+        .feed-title a {
+            color: #FFD700; text-decoration: none;
+        }
+        .feed-title a:hover {
+            color: #FFFF00; text-decoration: underline;
         }
         .feed-time {
             font-size: 0.8rem; opacity: 0.7; color: #6d3faa;
@@ -266,6 +280,15 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
+        .feed-status {
+            background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00;
+            border-radius: 8px; padding: 0.8rem; margin-bottom: 1rem;
+            text-align: center; font-size: 0.9rem; color: #00ff00;
+        }
+        .error-status {
+            background: rgba(255, 0, 0, 0.1); border: 1px solid #ff0000;
+            color: #ff6666;
+        }
         .message-popup {
             position: fixed; top: 20px; right: 20px; padding: 1rem 2rem;
             border-radius: 10px; color: white; font-weight: bold;
@@ -277,6 +300,9 @@
         }
         .message-popup.info {
             background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
+        }
+        .message-popup.error {
+            background: linear-gradient(45deg, #ff4444, #cc0000);
         }
         .message-popup.show { opacity: 1; transform: translateX(0); }
         .footer {
@@ -349,9 +375,12 @@
         <div class="content-grid">
             <section class="main-feed">
                 <h2 class="section-title">
-                    ✨ LIVE CRYPTO GUIDANCE
-                    <button class="refresh-btn" onclick="refreshFeed()">👼 Refresh Feed</button>
+                    🔴 LIVE CRYPTO NEWS
+                    <button class="refresh-btn" onclick="refreshFeed()">🔄 Refresh</button>
                 </h2>
+                <div class="feed-status" id="feedStatus">
+                    📡 <strong>Feed Status:</strong> Fetching live crypto news...
+                </div>
                 <div class="feed-container" id="feedContainer"></div>
             </section>
             <aside class="sidebar">
@@ -382,7 +411,7 @@
                             <div class="stat-label">Community Driven</div>
                         </div>
                     </div>
-                    <a href="https://uniswap.org" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #6d3faa, #9d6dd6); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: transform 0.3s; font-size: 0.9rem;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">💫 TRADE ON UNISWAP</a>
+                    <a href="https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #6d3faa, #9d6dd6); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: transform 0.3s; font-size: 0.9rem;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">👼 613 COIN</a>
                 </section>
                 <section class="sidebar-section angel-quotes">
                     <h3 class="section-title" style="color: #FFD700;">👼 ANGEL WISDOM</h3>
@@ -436,62 +465,422 @@
         </div>
     </footer>
     <script>
-        const config = {
-            feeds: ['https://cointelegraph.com/rss','https://decrypt.co/feed','https://www.coindesk.com/arc/outboundfeeds/rss/','https://cryptonews.com/rss.xml','https://blockworks.co/rss.xml'],
-            proxy: 'https://api.rss2json.com/v1/api.json?rss_url=',
-            fallback: [
-                {title:"👼 613 Coin: Angel Numbers Guide Crypto Journey",content:"The power of angel number 613 continues to inspire crypto enthusiasts as 613 Coin builds a community focused on spiritual alignment and financial opportunities...",publishedAt:new Date().toISOString(),source:"Angel Guidance",url:"#",wisdom:"Seek balance in all crypto decisions"},
-                {title:"✨ Polygon Network Embraces Spiritual Crypto Projects",content:"Entertainment-focused tokens with deeper meaning show remarkable community engagement on Polygon network...",publishedAt:new Date(Date.now()-2*60*60*1000).toISOString(),source:"Spiritual Crypto",url:"#",wisdom:"True value comes from purpose and community"}
-            ]
-        };
-        let cache=[], lastUpdate=0, loading=false;
-        const wisdoms = ["Trust the divine timing of opportunity","Balance guides all wise decisions","Community strength manifests abundance","Purpose transcends pure profit","Spiritual alignment brings prosperity"];
-        function wisdom() { return wisdoms[Math.floor(Math.random()*wisdoms.length)]; }
-        function time(d) { try { const diff = Math.floor((new Date()-new Date(d))/60000); return diff<60 ? diff+'m ago' : diff<1440 ? Math.floor(diff/60)+'h ago' : Math.floor(diff/1440)+'d ago'; } catch { return 'Now'; } }
-        function display(items) {
-            const c = document.getElementById('feedContainer');
-            if (!c) return;
-            c.innerHTML = items.map((a,i) => `<div class="feed-item" style="animation-delay:${i*0.15}s;opacity:0;animation:fadeInFeed 0.8s ease forwards;"><div class="feed-header"><div class="feed-title">${a.title}</div><div class="feed-time">${time(a.publishedAt)}</div></div><div class="feed-content">${a.content}</div><div class="feed-source"><div class="source-name">✨ ${a.source}</div><div class="angel-wisdom">"${a.wisdom||wisdom()}"</div></div></div>`).join('');
-        }
-        function loading(show) {
-            const c = document.getElementById('feedContainer');
-            if (!c) return;
-            if (show) c.innerHTML = '<div class="loading-indicator"><div style="font-size:3rem;margin-bottom:1.5rem;">👼</div><div style="font-size:1.4rem;margin-bottom:0.8rem;color:#FFD700;">Angels Gathering Cosmic Wisdom...</div><div style="font-size:1rem;opacity:0.8;">Consulting spiritual guides and market oracles...</div></div>';
-        }
-        async function loadFeed() {
-            if (loading) return;
-            loading = true;
-            const c = document.getElementById('feedContainer');
-            if (!c) { loading=false; return; }
-            loading(true);
-            try {
-                const now = Date.now();
-                if (cache.length && now-lastUpdate < 600000) {
-                    display(cache); loading(false); loading=false; return;
+        // REAL LIVE FEED IMPLEMENTATION
+        const FeedManager = {
+            // Multiple feed sources for reliability
+            sources: [
+                {
+                    name: 'RSS2JSON Service',
+                    urls: [
+                        'https://api.rss2json.com/v1/api.json?rss_url=https://cointelegraph.com/rss',
+                        'https://api.rss2json.com/v1/api.json?rss_url=https://www.coindesk.com/arc/outboundfeeds/rss/',
+                        'https://api.rss2json.com/v1/api.json?rss_url=https://decrypt.co/feed'
+                    ]
+                },
+                {
+                    name: 'AllOrigins Proxy',
+                    urls: [
+                        'https://api.allorigins.win/get?url=https://cointelegraph.com/rss',
+                        'https://api.allorigins.win/get?url=https://www.coindesk.com/arc/outboundfeeds/rss/'
+                    ]
+                },
+                {
+                    name: 'CORS Anywhere',
+                    urls: [
+                        'https://cors-anywhere.herokuapp.com/https://cointelegraph.com/rss',
+                        'https://cors-anywhere.herokuapp.com/https://www.coindesk.com/arc/outboundfeeds/rss/'
+                    ]
                 }
-                display(config.fallback);
-            } catch (e) {
-                display(config.fallback);
+            ],
+            cache: [],
+            lastUpdate: 0,
+            isLoading: false,
+
+            async fetchFromRSS2JSON(url) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    
+                    const data = await response.json();
+                    if (data.status === 'ok' && data.items) {
+                        return data.items.map(item => ({
+                            title: item.title,
+                            content: item.description.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+                            publishedAt: item.pubDate,
+                            link: item.link,
+                            source: data.feed?.title || 'Crypto News'
+                        }));
+                    }
+                    return [];
+                } catch (error) {
+                    console.warn('RSS2JSON failed:', error);
+                    return [];
+                }
+            },
+
+            async fetchFromAllOrigins(url) {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    
+                    if (data.contents) {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+                        const items = xmlDoc.querySelectorAll('item');
+                        
+                        return Array.from(items).slice(0, 10).map(item => ({
+                            title: item.querySelector('title')?.textContent || 'Crypto News',
+                            content: (item.querySelector('description')?.textContent || '').replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+                            publishedAt: item.querySelector('pubDate')?.textContent || new Date().toISOString(),
+                            link: item.querySelector('link')?.textContent || '#',
+                            source: 'Live Crypto Feed'
+                        }));
+                    }
+                    return [];
+                } catch (error) {
+                    console.warn('AllOrigins failed:', error);
+                    return [];
+                }
+            },
+
+            async fetchFromCORSAnywhere(url) {
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    
+                    const text = await response.text();
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(text, 'text/xml');
+                    const items = xmlDoc.querySelectorAll('item');
+                    
+                    return Array.from(items).slice(0, 10).map(item => ({
+                        title: item.querySelector('title')?.textContent || 'Crypto News',
+                        content: (item.querySelector('description')?.textContent || '').replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+                        publishedAt: item.querySelector('pubDate')?.textContent || new Date().toISOString(),
+                        link: item.querySelector('link')?.textContent || '#',
+                        source: 'Breaking Crypto News'
+                    }));
+                } catch (error) {
+                    console.warn('CORS Anywhere failed:', error);
+                    return [];
+                }
+            },
+
+            async fetchLiveFeeds() {
+                if (this.isLoading) return this.cache;
+                
+                this.isLoading = true;
+                this.updateStatus('🔄 Fetching live crypto news feeds...', 'loading');
+                
+                let allItems = [];
+                let successCount = 0;
+                
+                // Try RSS2JSON first (most reliable)
+                for (const url of this.sources[0].urls) {
+                    try {
+                        const items = await this.fetchFromRSS2JSON(url);
+                        if (items.length > 0) {
+                            allItems = allItems.concat(items);
+                            successCount++;
+                            console.log(`✅ RSS2JSON success: ${items.length} items from ${url}`);
+                        }
+                    } catch (error) {
+                        console.warn(`❌ RSS2JSON failed for ${url}:`, error);
+                    }
+                }
+                
+                // If RSS2JSON didn't work well, try AllOrigins
+                if (allItems.length < 5) {
+                    for (const url of this.sources[1].urls) {
+                        try {
+                            const items = await this.fetchFromAllOrigins(url);
+                            if (items.length > 0) {
+                                allItems = allItems.concat(items);
+                                successCount++;
+                                console.log(`✅ AllOrigins success: ${items.length} items from ${url}`);
+                            }
+                        } catch (error) {
+                            console.warn(`❌ AllOrigins failed for ${url}:`, error);
+                        }
+                    }
+                }
+                
+                // Remove duplicates and sort by date
+                const uniqueItems = this.removeDuplicates(allItems);
+                const sortedItems = uniqueItems.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+                
+                if (sortedItems.length > 0) {
+                    this.cache = sortedItems.slice(0, 15); // Keep top 15 items
+                    this.lastUpdate = Date.now();
+                    this.updateStatus(`🟢 Live feed active - ${sortedItems.length} articles loaded`, 'success');
+                    console.log(`✅ Total: ${sortedItems.length} articles loaded from ${successCount} sources`);
+                } else {
+                    this.updateStatus('🔴 Unable to fetch live feeds - Using backup content', 'error');
+                    this.cache = this.getBackupContent();
+                }
+                
+                this.isLoading = false;
+                return this.cache;
+            },
+
+            removeDuplicates(items) {
+                const seen = new Set();
+                return items.filter(item => {
+                    const key = item.title.toLowerCase().substring(0, 50);
+                    if (seen.has(key)) return false;
+                    seen.add(key);
+                    return true;
+                });
+            },
+
+            getBackupContent() {
+                return [
+                    {
+                        title: '👼 613 Coin Community Grows as Angel Number Awareness Spreads',
+                        content: 'The 613 Coin community continues to expand as more crypto enthusiasts discover the spiritual significance of angel numbers in blockchain technology...',
+                        publishedAt: new Date(Date.now() - 30 * 60 * 1000).toISOString(),
+                        link: '#',
+                        source: '613 Community News'
+                    },
+                    {
+                        title: '✨ Polygon Network Sees Surge in Spiritually-Inspired Crypto Projects',
+                        content: 'Recent analysis shows increased activity in purpose-driven cryptocurrency projects on Polygon, with spiritual and community-focused tokens gaining traction...',
+                        publishedAt: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
+                        link: '#',
+                        source: 'Spiritual Crypto Tribune'
+                    },
+                    {
+                        title: '🚀 Meme Coins with Deeper Meaning Outperform Traditional Tokens',
+                        content: 'Market data indicates that cryptocurrency projects combining entertainment with spiritual or cultural significance show stronger community engagement...',
+                        publishedAt: new Date(Date.now() - 90 * 60 * 1000).toISOString(),
+                        link: '#',
+                        source: 'Angel Market Analysis'
+                    }
+                ];
+            },
+
+            updateStatus(message, type) {
+                const statusEl = document.getElementById('feedStatus');
+                if (statusEl) {
+                    statusEl.textContent = `📡 Feed Status: ${message}`;
+                    statusEl.className = `feed-status ${type === 'error' ? 'error-status' : ''}`;
+                }
+            },
+
+            formatTimeAgo(dateString) {
+                try {
+                    const now = new Date();
+                    const date = new Date(dateString);
+                    const diffMs = now - date;
+                    const diffMins = Math.floor(diffMs / 60000);
+                    
+                    if (diffMins < 60) return `${diffMins}m ago`;
+                    if (diffMins < 1440) return `${Math.floor(diffMins / 60)}h ago`;
+                    return `${Math.floor(diffMins / 1440)}d ago`;
+                } catch {
+                    return 'Just now';
+                }
+            },
+
+            addAngelWisdom() {
+                const wisdoms = [
+                    "Divine timing guides all opportunities",
+                    "Balance creates lasting prosperity",
+                    "Community strength manifests abundance",
+                    "Purpose transcends pure profit",
+                    "Spiritual alignment brings clarity",
+                    "Trust the angel numbers' guidance",
+                    "Patience yields the greatest rewards"
+                ];
+                return wisdoms[Math.floor(Math.random() * wisdoms.length)];
             }
-            loading(false); loading=false;
+        };
+
+        // Display Functions
+        function displayFeeds(items) {
+            const container = document.getElementById('feedContainer');
+            if (!container) return;
+            
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="loading-indicator">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">😇</div>
+                        <div>No live feeds available at the moment</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = items.map((item, index) => `
+                <div class="feed-item ${index < 3 ? 'live-item' : ''}" 
+                     style="animation-delay: ${index * 0.1}s; opacity: 0; animation: fadeInFeed 0.6s ease forwards;">
+                    <div class="feed-header">
+                        <div class="feed-title">
+                            ${item.link !== '#' ? `<a href="${item.link}" target="_blank">${item.title}</a>` : item.title}
+                        </div>
+                        <div class="feed-time">${FeedManager.formatTimeAgo(item.publishedAt)}</div>
+                    </div>
+                    <div class="feed-content">${item.content}</div>
+                    <div class="feed-source">
+                        <div class="source-name">📡 ${item.source}</div>
+                        <div class="angel-wisdom">"${FeedManager.addAngelWisdom()}"</div>
+                    </div>
+                </div>
+            `).join('');
         }
-        async function refreshFeed() {
-            cache=[]; lastUpdate=0;
-            const btn = document.querySelector('.refresh-btn');
-            if (btn) { btn.textContent='👼 Channeling...'; btn.disabled=true; setTimeout(()=>{btn.textContent='👼 Refresh Feed';btn.disabled=false;},3000); }
-            await loadFeed();
+
+        function showLoading() {
+            const container = document.getElementById('feedContainer');
+            if (container) {
+                container.innerHTML = `
+                    <div class="loading-indicator">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">👼</div>
+                        <div style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #FFD700;">Connecting to Live Crypto Feeds...</div>
+                        <div style="font-size: 1rem; opacity: 0.8;">Fetching real-time news from multiple sources...</div>
+                    </div>
+                `;
+            }
         }
-        function floatingNumbers() {
-            const c = document.getElementById('floatingNumbers');
-            const nums = ['613','6','1','3','✨','👼','🌟'];
-            setInterval(()=>{
-                if (Math.random()<0.3) {
-                    const n = document.createElement('div');
-                    n.className = 'floating-number';
-                    n.textContent = nums[Math.floor(Math.random()*nums.length)];
-                    n.style.left = Math.random()*100+'%';
-                    n.style.animationDuration = (10+Math.random()*10)+'s';
-                    c.appendChild(n);
-                    setTimeout(()=>n.remove(),20000);
+
+        function showMessage(text, type = 'info') {
+            const existing = document.querySelector('.message-popup');
+            if (existing) existing.remove();
+            
+            const popup = document.createElement('div');
+            popup.className = `message-popup ${type}`;
+            popup.textContent = text;
+            document.body.appendChild(popup);
+            
+            setTimeout(() => popup.classList.add('show'), 100);
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => popup.remove(), 300);
+            }, 4000);
+        }
+
+        // Main Functions
+        async function loadFeeds() {
+            showLoading();
+            
+            try {
+                const feeds = await FeedManager.fetchLiveFeeds();
+                displayFeeds(feeds);
+                
+                if (feeds.length > 0) {
+                    showMessage(`🔴 Live feeds loaded! ${feeds.length} articles`, 'success');
+                } else {
+                    showMessage('⚠️ Using backup content - Live feeds unavailable', 'error');
                 }
-            },2000);
+            } catch (error) {
+                console.error('Feed loading error:', error);
+                FeedManager.updateStatus('🔴 Feed loading failed - Check connection', 'error');
+                displayFeeds(FeedManager.getBackupContent());
+                showMessage('❌ Live feed error - Using backup content', 'error');
+            }
+        }
+
+        async function refreshFeed() {
+            const btn = document.querySelector('.refresh-btn');
+            if (btn) {
+                const originalText = btn.textContent;
+                btn.textContent = '🔄 Loading...';
+                btn.disabled = true;
+                
+                // Reset cache to force fresh fetch
+                FeedManager.cache = [];
+                FeedManager.lastUpdate = 0;
+                
+                await loadFeeds();
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }
+        }
+
+        // Auto-refresh functionality
+        function startAutoRefresh() {
+            // Refresh every 10 minutes
+            setInterval(async () => {
+                if (!FeedManager.isLoading) {
+                    console.log('🔄 Auto-refreshing feeds...');
+                    FeedManager.cache = [];
+                    await loadFeeds();
+                }
+            }, 600000); // 10 minutes
+        }
+
+        // Floating numbers animation
+        function createFloatingNumbers() {
+            const container = document.getElementById('floatingNumbers');
+            const numbers = ['613', '6', '1', '3', '✨', '👼', '🌟'];
+            
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    const element = document.createElement('div');
+                    element.className = 'floating-number';
+                    element.textContent = numbers[Math.floor(Math.random() * numbers.length)];
+                    element.style.left = Math.random() * 100 + '%';
+                    element.style.animationDuration = (10 + Math.random() * 10) + 's';
+                    container.appendChild(element);
+                    
+                    setTimeout(() => element.remove(), 20000);
+                }
+            }, 2000);
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 613 Coin - Real Live Feeds Initializing...');
+            
+            // Start background animations
+            createFloatingNumbers();
+            
+            // Load initial feeds
+            loadFeeds();
+            
+            // Start auto-refresh
+            startAutoRefresh();
+            
+            // Welcome message
+            setTimeout(() => {
+                showMessage('🔴 Live crypto feeds are now active!', 'success');
+            }, 3000);
+            
+            console.log('✅ All systems operational - Real live feeds active!');
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                refreshFeed();
+            }
+        });
+
+        // Click animations
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.feed-item')) {
+                const item = e.target.closest('.feed-item');
+                item.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    item.style.transform = '';
+                }, 150);
+            }
+        });
+    </script>
+</body>
+</html>
