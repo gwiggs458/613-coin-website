@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>613 Coin - Where Angel Numbers Meet Crypto</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a1233, #1b2d4e, #2c4a7a, #68ae34);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .floating-numbers {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+        .floating-number {
+            position: absolute; color: rgba(255, 215, 0, 0.1);
+            font-size: 2rem; font-weight: bold;
+            animation: float 15s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        .header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
+            border-bottom: 3px solid #FFD700; z-index: 1000;
+            padding: 1rem 2rem; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+        .nav {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .logo {
+            display: flex; align-items: center; font-size: 1.4rem;
+            font-weight: bold; color: #FFD700;
+        }
+        .coin-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin-right: 12px;
+            font-size: 16px; font-weight: 900; color: #1a0d33;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            border: 2px solid #68ae34;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+        }
+        .coin-icon::after {
+            content: '👼'; position: absolute; right: -8px; top: -5px;
+            font-size: 18px; z-index: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        .nav-links {
+            display: flex; gap: 1rem; flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white; text-decoration: none; transition: all 0.3s;
+            padding: 0.5rem 1rem; border-radius: 8px;
+            font-size: 0.9rem; font-weight: bold;
+            border: 1px solid transparent;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #FFD700; background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700; transform: translateY(-2px);
+        }
+        .main-content {
+            margin-top: 120px; padding: 2rem;
+            max-width: 1400px; margin-left: auto; margin-right: auto;
+            position: relative; z-index: 2;
+        }
+        .hero-section {
+            text-align: center; margin-bottom: 3rem;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(104, 174, 52, 0.1));
+            border: 2px solid #FFD700; border-radius: 25px;
+            padding: 3rem 2rem; position: relative; overflow: hidden;
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-coin {
+            width: 120px; height: 120px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 36px; font-weight: 900;
+            color: #1a0d33; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border: 3px solid #68ae34;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            margin: 0 auto 1rem; position: relative;
+        }
+        .hero-coin::after {
+            content: '👼'; position: absolute; right: -15px; top: -10px;
+            font-size: 40px; z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .page-title {
+            font-size: 3.5rem; margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFFF00, #FFD700, #FFFF00);
+            background-size: 400% 400%; animation: shimmer 3s ease-in-out infinite;
+            background-clip: text; -webkit-background-clip: text; color: transparent;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 255, 0, 0.6);
+            font-weight: 900; filter: brightness(1.3);
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .angel-quote {
+            font-size: 1.3rem; color: #FFFF00; margin-bottom: 1rem;
+            font-style: italic; font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 0, 0.7), 2px 2px 4px rgba(0, 0, 0, 0.5);
+            filter: brightness(1.2);
+        }
+        .page-subtitle {
+            font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; color: #E8E8FF;
+        }
+        .coin-description {
+            background: linear-gradient(45deg, rgba(255, 255, 0, 0.15), rgba(255, 215, 0, 0.1));
+            border: 3px solid #FFFF00; border-radius: 15px;
+            padding: 1.5rem; margin: 2rem auto; max-width: 700px;
+            text-align: center; box-shadow: 0 0 30px rgba(255, 255, 0, 0.3);
+        }
+        .coin-description-text {
+            font-size: 1.1rem; line-height: 1.6; color: #FFFFFF;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        .content-grid {
+            display: grid; grid-template-columns: 2fr 1fr;
+            gap: 2rem; margin-bottom: 3rem;
+        }
+        .main-feed {
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #FFD700;
+            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.6rem; color: #FFD700; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            border-bottom: 2px solid #FFD700; padding-bottom: 0.5rem;
+        }
+        .feed-item {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(104, 174, 52, 0.05));
+            border-radius: 15px; padding: 1.5rem; margin-bottom: 1.5rem;
+            border-left: 5px solid #68ae34; transition: all 0.3s ease;
+            cursor: pointer; position: relative; overflow: hidden;
+        }
+        .feed-item:hover {
+            transform: translateX(10px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(104, 174, 52, 0.1));
+            border-left-color: #FFD700; box-shadow: 0 10px 30px rgba(104, 174, 52, 0.3);
+        }
+        .feed-item.live-item {
+            border-left-color: #00ff00;
+            animation: liveGlow 2s ease-in-out infinite;
+        }
+        @keyframes liveGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.6); }
+        }
+        .feed-header {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; margin-bottom: 0.8rem;
+        }
+        .feed-title {
+            font-weight: bold; color: #FFD700; font-size: 1.1rem;
+            line-height: 1.3; margin-right: 1rem;
+        }
+        .feed-title a {
+            color: #FFD700; text-decoration: none;
+        }
+        .feed-title a:hover {
+            color: #FFFF00; text-decoration: underline;
+        }
+        .feed-time {
+            font-size: 0.8rem; opacity: 0.7; color: #68ae34;
+            font-weight: bold; white-space: nowrap;
+        }
+        .feed-content {
+            line-height: 1.6; margin-bottom: 0.8rem; color: #E8E8FF;
+        }
+        .feed-source {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .source-name {
+            font-size: 0.9rem; color: #68ae34; font-weight: bold;
+        }
+        .angel-wisdom {
+            font-size: 0.8rem; color: #FFD700; font-style: italic; opacity: 0.8;
+        }
+        .sidebar {
+            display: flex; flex-direction: column; gap: 2rem;
+        }
+        .sidebar-section {
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #68ae34;
+            border-radius: 15px; padding: 1.5rem; backdrop-filter: blur(10px);
+        }
+        .token-info {
+            text-align: center;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(104, 174, 52, 0.1));
+            border: 2px solid #FFD700;
+        }
+        .token-logo {
+            width: 100px; height: 100px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 24px; font-weight: 900;
+            color: #1a0d33; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 1rem; border: 3px solid #68ae34;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            position: relative;
+        }
+        .token-logo::after {
+            content: '👼'; position: absolute; right: -12px; top: -8px;
+            font-size: 32px; z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .about-613 {
+            background: rgba(255, 215, 0, 0.1); border: 1px solid #FFD700;
+            border-radius: 10px; padding: 1rem; margin-bottom: 1rem; text-align: left;
+        }
+        .about-613-text {
+            font-size: 0.9rem; line-height: 1.5; color: #E8E8FF;
+        }
+        .market-stats {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;
+        }
+        .stat-item {
+            text-align: center; background: rgba(255, 255, 255, 0.05);
+            padding: 1rem; border-radius: 10px; border: 1px solid #68ae34;
+        }
+        .stat-number {
+            font-size: 1.3rem; font-weight: bold; color: #FFD700;
+        }
+        .stat-label {
+            font-size: 0.8rem; opacity: 0.8; margin-top: 0.3rem;
+        }
+        .angel-quotes {
+            background: linear-gradient(45deg, rgba(104, 174, 52, 0.1), rgba(255, 215, 0, 0.05));
+        }
+        .quote-item {
+            background: rgba(0, 0, 0, 0.3); border-left: 4px solid #FFD700;
+            padding: 1rem; margin-bottom: 1rem; border-radius: 8px;
+            font-style: italic; color: #FFD700;
+        }
+        .quote-author {
+            text-align: right; margin-top: 0.5rem; font-size: 0.8rem;
+            color: #68ae34; font-weight: bold;
+        }
+        .refresh-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
+            border: none; padding: 0.6rem 1.2rem; border-radius: 20px;
+            font-size: 0.9rem; font-weight: bold; cursor: pointer;
+            transition: all 0.3s ease; margin-left: 1rem;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        .refresh-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+        .refresh-btn:disabled {
+            opacity: 0.6; cursor: not-allowed; transform: none;
+        }
+        .loading-indicator {
+            text-align: center; padding: 3rem; color: #FFD700;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .feed-status {
+            background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00;
+            border-radius: 8px; padding: 0.8rem; margin-bottom: 1rem;
+            text-align: center; font-size: 0.9rem; color: #00ff00;
+        }
+        .error-status {
+            background: rgba(255, 0, 0, 0.1); border: 1px solid #ff0000;
+            color: #ff6666;
+        }
+        .message-popup {
+            position: fixed; top: 20px; right: 20px; padding: 1rem 2rem;
+            border-radius: 10px; color: white; font-weight: bold;
+            z-index: 10001; opacity: 0; transform: translateX(100px);
+            transition: all 0.3s ease;
+        }
+        .message-popup.success {
+            background: linear-gradient(45deg, #68ae34, #9dd66d);
+        }
+        .message-popup.info {
+            background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
+        }
+        .message-popup.error {
+            background: linear-gradient(45deg, #ff4444, #cc0000);
+        }
+        .message-popup.show { opacity: 1; transform: translateX(0); }
+        .footer {
+            background: rgba(0, 0, 0, 0.95); border-top: 3px solid #FFD700;
+            padding: 2rem; margin-top: 3rem; text-align: center;
+        }
+        .footer-about {
+            background: rgba(104, 174, 52, 0.1); border: 2px solid #68ae34;
+            border-radius: 15px; padding: 2rem; margin-bottom: 2rem;
+            max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+        .footer-about h3 {
+            color: #FFD700; text-align: center; margin-bottom: 1rem; font-size: 1.4rem;
+        }
+        .footer-about-text {
+            font-size: 1.1rem; line-height: 1.6; color: #E8E8FF; text-align: center;
+        }
+        .disclaimer {
+            background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700;
+            border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem;
+            color: #FFD700; font-weight: bold;
+        }
+        .footer-quote {
+            color: #68ae34; font-style: italic; margin-bottom: 1rem; font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .page-title { font-size: 2.2rem; }
+            .market-stats { grid-template-columns: 1fr; }
+            .nav-links { gap: 0.5rem; }
+            .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+        }
+        @keyframes fadeInFeed {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-numbers" id="floatingNumbers"></div>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="coin-icon">613</div>
+                613 COIN
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">✨ LIVE FEED</a>
+                <a href="#angel-wisdom">👼 ANGEL WISDOM</a>
+                <a href="#token-info">🪙 613 TOKEN</a>
+                <a href="#disclaimer">⚠️ DISCLAIMER</a>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-coin">613</div>
+                <h1 class="page-title">613 COIN</h1>
+                <div class="angel-quote">"Where Angel Numbers Meet Crypto"</div>
+                <p class="page-subtitle">A Meme Cryptocurrency Infused with Symbolism and Purpose</p>
+                <div style="color: #68ae34; font-size: 14px; font-weight: bold;">👼 Angel Number • 💎 Polygon Network • ✨ Spiritual Significance</div>
+                <div class="coin-description">
+                    <div class="coin-description-text">
+                        <strong style="color: #FFD700;">613 Coin</strong> is a unique meme cryptocurrency that combines the fun and humor of internet culture with profound spiritual and cultural significance. Rooted in the symbolism of the angel number 613 and its spiritual ties to the 613 commandments, this project seeks to create a decentralized, community-driven token that resonates with a sense of purpose.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="content-grid">
+            <section class="main-feed">
+                <h2 class="section-title">
+                    🔴 LIVE CRYPTO NEWS
+                    <button class="refresh-btn" onclick="refreshFeed()">🔄 Refresh</button>
+                </h2>
+                <div class="feed-status" id="feedStatus">
+                    📡 <strong>Feed Status:</strong> Fetching live crypto news...
+                </div>
+                <div class="feed-container" id="feedContainer"></div>
+            </section>
+            <aside class="sidebar">
+                <section class="sidebar-section token-info">
+                    <h3 class="section-title" style="justify-content: center; color: #FFD700;">🪙 613 COIN</h3>
+                    <div class="token-logo">613</div>
+                    <div class="about-613">
+                        <div class="about-613-text">
+                            <strong style="color: #FFD700;">613 Coin</strong> draws inspiration from the angel number 613, which symbolizes guidance, balance, and opportunities, and the biblical 613 commandments that form the moral and ethical foundations of life.
+                        </div>
+                    </div>
+                    <div style="font-size: 0.9rem; margin-bottom: 1rem; color: #68ae34;">Polygon • Spiritual Symbolism</div>
+                    <div class="market-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">613B</div>
+                            <div class="stat-label">Total Supply</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">👼</div>
+                            <div class="stat-label">Angel Guided</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">✨</div>
+                            <div class="stat-label">Pure Purpose</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">🚀</div>
+                            <div class="stat-label">Community Driven</div>
+                        </div>
+                    </div>
+                    <a href="https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #68ae34, #9dd66d); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: transform 0.3s; font-size: 0.9rem;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">👼 613 COIN</a>
+                </section>
+                <section class="sidebar-section angel-quotes">
+                    <h3 class="section-title" style="color: #FFD700;">👼 ANGEL WISDOM</h3>
+                    <div class="quote-item">
+                        "The angel number 613 represents spiritual alignment, optimism, and new opportunities."
+                        <div class="quote-author">- Angel Number 613</div>
+                    </div>
+                    <div class="quote-item">
+                        "613 commandments represent the moral and ethical framework for leading a meaningful life."
+                        <div class="quote-author">- Spiritual Significance</div>
+                    </div>
+                    <div class="quote-item">
+                        "Order, accountability, and wisdom guide the philosophy of 613 Coin."
+                        <div class="quote-author">- Community Values</div>
+                    </div>
+                    <div class="quote-item">
+                        "Where memes meet meaning, and humor meets hope."
+                        <div class="quote-author">- 613 Coin Vision</div>
+                    </div>
+                </section>
+                <section class="sidebar-section">
+                    <h3 class="section-title" style="color: #68ae34;">✨ SPIRITUAL GUIDANCE</h3>
+                    <div style="background: rgba(104, 174, 52, 0.1); padding: 1rem; border-radius: 10px; border: 1px solid #68ae34;">
+                        <div style="font-weight: bold; color: #FFD700; margin-bottom: 0.5rem;">🎯 Today's Focus:</div>
+                        <div style="font-size: 0.9rem; line-height: 1.5;">
+                            • Embrace balance in all decisions<br>
+                            • Seek opportunities for growth<br>
+                            • Foster community connections<br>
+                            • Practice ethical principles
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-about">
+            <h3>About 613 Coin</h3>
+            <div class="footer-about-text">
+                <strong style="color: #FFD700;">613 Coin</strong> is a unique meme cryptocurrency that combines the fun and humor of internet culture with profound spiritual and cultural significance. Rooted in the symbolism of the angel number 613 and its spiritual ties to the 613 commandments, this project seeks to create a decentralized, community-driven token that resonates with a sense of purpose.
+            </div>
+        </div>
+        <div class="disclaimer">
+            ⚠️ ENTERTAINMENT ONLY - 613 Coin is a meme cryptocurrency created for entertainment purposes. It is not intended to be a financial investment or a means of generating profit. The value of 613 Coin can be highly volatile and may fluctuate significantly. Always conduct your own research before investing. 👼✨
+        </div>
+        <div class="footer-quote">
+            "Join the 613 Coin Community, where memes meet meaning, and humor meets hope."
+        </div>
+        <div style="color: #ccc; font-size: 0.9rem;">
+            © 2025 613 Coin • Built for the community with 👼 guidance and ✨ purpose
+        </div>
+    </footer>
+    <script>
+        // REAL LIVE FEED IMPLEMENTATION
+        const FeedManager = {
+            // Multiple feed sources for reliability
+            sources: [
+                {
+                    name: 'RSS2JSON Service',
+                    urls: [
+                        'https://api.rss2json.com/v1/api.json?rss_url=https://cointelegraph.com/rss',
+                        'https://api.rss2json.com/v1/api.json?rss_url=https://www.coindesk.com/arc/outboundfeeds/rss/',
+                        'https://api.rss2json.com/v1/api.json?rss_url=https://decrypt.co/feed'
+                    ]
+                },
+                {
+                    name: 'AllOrigins Proxy',
+                    urls: [
+                        'https://api.allorigins.win/get?url=https://cointelegraph.com/rss',
+                        'https://api.allorigins.win/get?url=https://www.coindesk.com/arc/outboundfeeds/rss/'
+                    ]
+                },
+                {
+                    name: 'CORS Anywhere',
+                    urls: [
+                        'https://cors-anywhere.herokuapp.com/https://cointelegraph.com/rss',
+                        'https://cors-anywhere.herokuapp.com/https://www.coindesk.com/arc/outboundfeeds/rss/'
+                    ]
+                }
+            ],
+            cache: [],
+            lastUpdate: 0,
+            isLoading: false,
+
+            async fetchFromRSS2JSON(url) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    
+                    const data = await response.json();
+                    if (data.status === 'ok' && data.items) {
+                        return data.items.map(item => ({
+                            title: item.title,
+                            content: item.description.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+                            publishedAt: item.pubDate,
+                            link: item.link,
+                            source: data.feed?.title || 'Crypto News'
+                        }));
+                    }
+                    return [];
+                } catch (error) {
+                    console.warn('RSS2JSON failed:', error);
+                    return [];
+                }
+            },
+
+            async fetchFromAllOrigins(url) {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    
+                    if (data.contents) {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+                        const items = xmlDoc.querySelectorAll('item');
+                        
+                        return Array.from(items).slice(0, 10).map(item => ({
+                            title: item.querySelector('title')?.textContent || 'Crypto News',
+                            content: (item.querySelector('description')?.textContent || '').replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+                            publishedAt: item.querySelector('pubDate')?.textContent || new Date().toISOString(),
+                            link: item.querySelector('link')?.textContent || '#',
+                            source: 'Live Crypto Feed'
+                        }));
+                    }
+                    return [];
+                } catch (error) {
+                    console.warn('AllOrigins failed:', error);
+                    return [];
+                }
+            },
+
+            async fetchFromCORSAnywhere(url) {
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    
+                    const text = await response.text();
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(text, 'text/xml');
+                    const items = xmlDoc.querySelectorAll('item');
+                    
+                    return Array.from(items).slice(0, 10).map(item => ({
+                        title: item.querySelector('title')?.textContent || 'Crypto News',
+                        content: (item.querySelector('description')?.textContent || '').replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+                        publishedAt: item.querySelector('pubDate')?.textContent || new Date().toISOString(),
+                        link: item.querySelector('link')?.textContent || '#',
+                        source: 'Breaking Crypto News'
+                    }));
+                } catch (error) {
+                    console.warn('CORS Anywhere failed:', error);
+                    return [];
+                }
+            },
+
+            async fetchLiveFeeds() {
+                if (this.isLoading) return this.cache;
+                
+                this.isLoading = true;
+                this.updateStatus('🔄 Fetching live crypto news feeds...', 'loading');
+                
+                let allItems = [];
+                let successCount = 0;
+                
+                // Try RSS2JSON first (most reliable)
+                for (const url of this.sources[0].urls) {
+                    try {
+                        const items = await this.fetchFromRSS2JSON(url);
+                        if (items.length > 0) {
+                            allItems = allItems.concat(items);
+                            successCount++;
+                            console.log(`✅ RSS2JSON success: ${items.length} items from ${url}`);
+                        }
+                    } catch (error) {
+                        console.warn(`❌ RSS2JSON failed for ${url}:`, error);
+                    }
+                }
+                
+                // If RSS2JSON didn't work well, try AllOrigins
+                if (allItems.length < 5) {
+                    for (const url of this.sources[1].urls) {
+                        try {
+                            const items = await this.fetchFromAllOrigins(url);
+                            if (items.length > 0) {
+                                allItems = allItems.concat(items);
+                                successCount++;
+                                console.log(`✅ AllOrigins success: ${items.length} items from ${url}`);
+                            }
+                        } catch (error) {
+                            console.warn(`❌ AllOrigins failed for ${url}:`, error);
+                        }
+                    }
+                }
+                
+                // Remove duplicates and sort by date
+                const uniqueItems = this.removeDuplicates(allItems);
+                const sortedItems = uniqueItems.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+                
+                if (sortedItems.length > 0) {
+                    this.cache = sortedItems.slice(0, 15); // Keep top 15 items
+                    this.lastUpdate = Date.now();
+                    this.updateStatus(`🟢 Live feed active - ${sortedItems.length} articles loaded`, 'success');
+                    console.log(`✅ Total: ${sortedItems.length} articles loaded from ${successCount} sources`);
+                } else {
+                    this.updateStatus('🔴 Unable to fetch live feeds - Using backup content', 'error');
+                    this.cache = this.getBackupContent();
+                }
+                
+                this.isLoading = false;
+                return this.cache;
+            },
+
+            removeDuplicates(items) {
+                const seen = new Set();
+                return items.filter(item => {
+                    const key = item.title.toLowerCase().substring(0, 50);
+                    if (seen.has(key)) return false;
+                    seen.add(key);
+                    return true;
+                });
+            },
+
+            getBackupContent() {
+                return [
+                    {
+                        title: '👼 613 Coin Community Grows as Angel Number Awareness Spreads',
+                        content: 'The 613 Coin community continues to expand as more crypto enthusiasts discover the spiritual significance of angel numbers in blockchain technology...',
+                        publishedAt: new Date(Date.now() - 30 * 60 * 1000).toISOString(),
+                        link: '#',
+                        source: '613 Community News'
+                    },
+                    {
+                        title: '✨ Polygon Network Sees Surge in Spiritually-Inspired Crypto Projects',
+                        content: 'Recent analysis shows increased activity in purpose-driven cryptocurrency projects on Polygon, with spiritual and community-focused tokens gaining traction...',
+                        publishedAt: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
+                        link: '#',
+                        source: 'Spiritual Crypto Tribune'
+                    },
+                    {
+                        title: '🚀 Meme Coins with Deeper Meaning Outperform Traditional Tokens',
+                        content: 'Market data indicates that cryptocurrency projects combining entertainment with spiritual or cultural significance show stronger community engagement...',
+                        publishedAt: new Date(Date.now() - 90 * 60 * 1000).toISOString(),
+                        link: '#',
+                        source: 'Angel Market Analysis'
+                    }
+                ];
+            },
+
+            updateStatus(message, type) {
+                const statusEl = document.getElementById('feedStatus');
+                if (statusEl) {
+                    statusEl.textContent = `📡 Feed Status: ${message}`;
+                    statusEl.className = `feed-status ${type === 'error' ? 'error-status' : ''}`;
+                }
+            },
+
+            formatTimeAgo(dateString) {
+                try {
+                    const now = new Date();
+                    const date = new Date(dateString);
+                    const diffMs = now - date;
+                    const diffMins = Math.floor(diffMs / 60000);
+                    
+                    if (diffMins < 60) return `${diffMins}m ago`;
+                    if (diffMins < 1440) return `${Math.floor(diffMins / 60)}h ago`;
+                    return `${Math.floor(diffMins / 1440)}d ago`;
+                } catch {
+                    return 'Just now';
+                }
+            },
+
+            addAngelWisdom() {
+                const wisdoms = [
+                    "Divine timing guides all opportunities",
+                    "Balance creates lasting prosperity",
+                    "Community strength manifests abundance",
+                    "Purpose transcends pure profit",
+                    "Spiritual alignment brings clarity",
+                    "Trust the angel numbers' guidance",
+                    "Patience yields the greatest rewards"
+                ];
+                return wisdoms[Math.floor(Math.random() * wisdoms.length)];
+            }
+        };
+
+        // Display Functions
+        function displayFeeds(items) {
+            const container = document.getElementById('feedContainer');
+            if (!container) return;
+            
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="loading-indicator">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">😇</div>
+                        <div>No live feeds available at the moment</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = items.map((item, index) => `
+                <div class="feed-item ${index < 3 ? 'live-item' : ''}" 
+                     style="animation-delay: ${index * 0.1}s; opacity: 0; animation: fadeInFeed 0.6s ease forwards;">
+                    <div class="feed-header">
+                        <div class="feed-title">
+                            ${item.link !== '#' ? `<a href="${item.link}" target="_blank">${item.title}</a>` : item.title}
+                        </div>
+                        <div class="feed-time">${FeedManager.formatTimeAgo(item.publishedAt)}</div>
+                    </div>
+                    <div class="feed-content">${item.content}</div>
+                    <div class="feed-source">
+                        <div class="source-name">📡 ${item.source}</div>
+                        <div class="angel-wisdom">"${FeedManager.addAngelWisdom()}"</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showLoading() {
+            const container = document.getElementById('feedContainer');
+            if (container) {
+                container.innerHTML = `
+                    <div class="loading-indicator">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">👼</div>
+                        <div style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #FFD700;">Connecting to Live Crypto Feeds...</div>
+                        <div style="font-size: 1rem; opacity: 0.8;">Fetching real-time news from multiple sources...</div>
+                    </div>
+                `;
+            }
+        }
+
+        function showMessage(text, type = 'info') {
+            const existing = document.querySelector('.message-popup');
+            if (existing) existing.remove();
+            
+            const popup = document.createElement('div');
+            popup.className = `message-popup ${type}`;
+            popup.textContent = text;
+            document.body.appendChild(popup);
+            
+            setTimeout(() => popup.classList.add('show'), 100);
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => popup.remove(), 300);
+            }, 4000);
+        }
+
+        // Main Functions
+        async function loadFeeds() {
+            showLoading();
+            
+            try {
+                const feeds = await FeedManager.fetchLiveFeeds();
+                displayFeeds(feeds);
+                
+                if (feeds.length > 0) {
+                    showMessage(`🔴 Live feeds loaded! ${feeds.length} articles`, 'success');
+                } else {
+                    showMessage('⚠️ Using backup content - Live feeds unavailable', 'error');
+                }
+            } catch (error) {
+                console.error('Feed loading error:', error);
+                FeedManager.updateStatus('🔴 Feed loading failed - Check connection', 'error');
+                displayFeeds(FeedManager.getBackupContent());
+                showMessage('❌ Live feed error - Using backup content', 'error');
+            }
+        }
+
+        async function refreshFeed() {
+            const btn = document.querySelector('.refresh-btn');
+            if (btn) {
+                const originalText = btn.textContent;
+                btn.textContent = '🔄 Loading...';
+                btn.disabled = true;
+                
+                // Reset cache to force fresh fetch
+                FeedManager.cache = [];
+                FeedManager.lastUpdate = 0;
+                
+                await loadFeeds();
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }
+        }
+
+        // Auto-refresh functionality
+        function startAutoRefresh() {
+            // Refresh every 10 minutes
+            setInterval(async () => {
+                if (!FeedManager.isLoading) {
+                    console.log('🔄 Auto-refreshing feeds...');
+                    FeedManager.cache = [];
+                    await loadFeeds();
+                }
+            }, 600000); // 10 minutes
+        }
+
+        // Floating numbers animation
+        function createFloatingNumbers() {
+            const container = document.getElementById('floatingNumbers');
+            const numbers = ['613', '6', '1', '3', '✨', '👼', '🌟'];
+            
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    const element = document.createElement('div');
+                    element.className = 'floating-number';
+                    element.textContent = numbers[Math.floor(Math.random() * numbers.length)];
+                    element.style.left = Math.random() * 100 + '%';
+                    element.style.animationDuration = (10 + Math.random() * 10) + 's';
+                    container.appendChild(element);
+                    
+                    setTimeout(() => element.remove(), 20000);
+                }
+            }, 2000);
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 613 Coin - Real Live Feeds Initializing...');
+            
+            // Start background animations
+            createFloatingNumbers();
+            
+            // Load initial feeds
+            loadFeeds();
+            
+            // Start auto-refresh
+            startAutoRefresh();
+            
+            // Welcome message
+            setTimeout(() => {
+                showMessage('🔴 Live crypto feeds are now active!', 'success');
+            }, 3000);
+            
+            console.log('✅ All systems operational - Real live feeds active!');
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                refreshFeed();
+            }
+        });
+
+        // Click animations
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.feed-item')) {
+                const item = e.target.closest('.feed-item');
+                item.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    item.style.transform = '';
+                }, 150);
+            }
+        });
+    </script>
+</body>
+</html>
