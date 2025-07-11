@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - 613 Coin Divine Guidance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a1233, #1b2d4e, #2c4a7a, #68ae34);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 3px solid #FFD700;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .coin-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+            font-weight: 900;
+            color: #1a0d33;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            border: 2px solid #68ae34;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+        }
+
+        .coin-icon::after {
+            content: '👼';
+            position: absolute;
+            right: -8px;
+            top: -5px;
+            font-size: 18px;
+            z-index: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFFFFF, #FFD700, #FFFFFF);
+            background-size: 400% 400%;
+            animation: shimmer 4s ease-in-out infinite;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            color: #E8E8FF;
+            font-style: italic;
+        }
+
+        .disclaimer-content {
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+            line-height: 1.8;
+            backdrop-filter: blur(10px);
+        }
+
+        .disclaimer-content h2 {
+            color: #FFD700;
+            margin: 30px 0 15px 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
+        }
+
+        .disclaimer-content h3 {
+            color: #68ae34;
+            margin: 25px 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        .disclaimer-content p {
+            margin-bottom: 15px;
+            color: #E8E8FF;
+        }
+
+        .disclaimer-content ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        .disclaimer-content li {
+            margin-bottom: 8px;
+            color: #E8E8FF;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 165, 0, 0.2));
+            border: 2px solid #FFD700;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spiritual-box {
+            background: linear-gradient(135deg, rgba(104, 174, 52, 0.3), rgba(157, 214, 109, 0.2));
+            border: 2px solid #68ae34;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .warning-box::before, .spiritual-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: angelShimmer 4s infinite;
+        }
+
+        @keyframes angelShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .warning-box strong {
+            color: #FFFFFF;
+            font-size: 1.1em;
+        }
+
+        .spiritual-box strong {
+            color: #68ae34;
+            font-size: 1.1em;
+        }
+
+        .back-button {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .back-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #1a0d33;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .back-btn:hover::before {
+            left: 100%;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 3px solid #FFD700;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .disclaimer {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .community-message {
+            color: #68ae34;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .disclaimer-content {
+                padding: 1.5rem;
+            }
+
+            .main-content {
+                padding: 150px 1rem 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="coin-icon">613</div>
+                613 COIN
+            </div>
+            <div class="nav-links">
+                <a href="#">👼 ANGEL WISDOM</a>
+                <a href="#token-info">🪙 613 TOKEN</a>
+                <a href="#" class="active">⚠️ DISCLAIMER</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title fade-in">
+            <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 900; color: #1a0d33; border: 3px solid #68ae34; position: relative;">
+                613
+                <span style="position: absolute; right: -10px; top: -8px; font-size: 28px;">👼</span>
+            </div>
+            Divine Disclaimer
+        </h1>
+        <p class="page-subtitle fade-in">"Sacred Wisdom for Enlightened Participation - Please Read with Divine Attention"</p>
+
+        <div class="disclaimer-content fade-in">
+            <div class="warning-box">
+                <strong>⚠️ SACRED DISCLAIMER</strong><br>
+                <strong>613 COIN IS FOR ENTERTAINMENT PURPOSES ONLY</strong><br>
+                <strong>PLEASE READ WITH DIVINE ATTENTION BEFORE PARTICIPATING</strong>
+            </div>
+
+            <h2>👼 613 Coin Spiritual Entertainment Disclaimer</h2>
+            <div class="spiritual-box">
+                <strong>🕊️ DIVINE ENTERTAINMENT NOTICE</strong><br><br>
+                <strong>613 Coin exists purely for spiritual entertainment and meme culture enjoyment. By participating, you acknowledge the following sacred truths:</strong>
+            </div>
+            <ul>
+                <li><strong>613 tokens have NO financial value, NO utility, and NO expectation of earthly profit</strong></li>
+                <li><strong>This is a meme coin created for entertainment, spiritual reflection, and community connection</strong></li>
+                <li>All angel guidance, spiritual readings, and divine messages are for entertainment purposes only</li>
+                <li>613 Coin is NOT an investment, security, or financial instrument of any kind</li>
+                <li>Tokens may become worthless or cease to exist at any time without divine notice</li>
+                <li>No guarantees are made regarding spiritual enlightenment, financial gains, or cosmic alignment</li>
+                <li>All angel number interpretations are for entertainment and should not guide life decisions</li>
+                <li>Participants must comply with their earthly laws and celestial regulations</li>
+            </ul>
+            <p><strong>For entertainment purposes only. 18+ only. High risk of total material loss but potential for spiritual gains.</strong></p>
+
+            <h2>🎭 Entertainment & Spiritual Reflection Only</h2>
+            <p>613 Coin is a <strong>meme cryptocurrency created solely for entertainment, spiritual reflection, and divine humor</strong>. This token is designed for:</p>
+            <ul>
+                <li>Spiritual entertainment and angelic community engagement</li>
+                <li>Meditation, reflection, and cosmic contemplation</li>
+                <li>Interactive spiritual experiences and divine gaming</li>
+                <li>Sacred meme culture and celestial social media engagement</li>
+                <li>Connecting with the mystical significance of the number 613</li>
+            </ul>
+            <p>613 Coin is <strong>NOT intended as an investment vehicle</strong> and should not be purchased with expectation of material profit or spiritual enlightenment.</p>
+
+            <h2>💰 No Financial or Spiritual Advice</h2>
+            <p><strong>This website and all divine content provided does NOT constitute financial, investment, spiritual, or life advice.</strong></p>
+            <ul>
+                <li>We do not recommend buying, selling, or holding 613 tokens for profit</li>
+                <li>All angel guidance and spiritual content is for entertainment purposes only</li>
+                <li>No mystical statements should be interpreted as investment or life recommendations</li>
+                <li>Always consult qualified financial advisors for earthly money matters</li>
+                <li>Consult spiritual advisors, religious leaders, or therapists for genuine guidance</li>
+            </ul>
+
+            <h2>⚡ High Risk Divine Warning</h2>
+            <div class="warning-box">
+                <strong>CRYPTOCURRENCY INVESTMENTS CARRY EXTREME EARTHLY RISKS:</strong>
+            </div>
+            <ul>
+                <li><strong>Total Material Loss Possible:</strong> You may lose 100% of your earthly investment</li>
+                <li><strong>Extreme Volatility:</strong> Meme tokens experience massive price fluctuations like cosmic storms</li>
+                <li><strong>No Divine Guarantees:</strong> Past performance does not predict future celestial results</li>
+                <li><strong>Speculative Nature:</strong> Meme cryptocurrencies are as unpredictable as divine will</li>
+                <li><strong>Market Risk:</strong> Crypto markets are unregulated earthly chaos</li>
+                <li><strong>Spiritual Risk:</strong> Do not base life decisions on entertainment content</li>
+            </ul>
+
+            <h2>🎲 Meme Coin & Spiritual Content Risks</h2>
+            <p><strong>Additional risks specific to spiritual meme cryptocurrencies:</strong></p>
+            <ul>
+                <li><strong>Entertainment Value Only:</strong> No underlying business model, revenue, or spiritual authority</li>
+                <li><strong>Viral Nature:</strong> Success depends entirely on social media trends and divine humor</li>
+                <li><strong>Liquidity Risk:</strong> May become difficult or impossible to sell for earthly currency</li>
+                <li><strong>Community Dependent:</strong> Value relies on continued angelic community interest</li>
+                <li><strong>No Utility Promise:</strong> Token utility may vanish like morning mist</li>
+                <li><strong>Spiritual Misinterpretation:</strong> Entertainment content may be mistaken for genuine guidance</li>
+            </ul>
+
+            <h2>🚫 No Material or Spiritual Promises</h2>
+            <p><strong>We make NO representations or warranties about:</strong></p>
+            <ul>
+                <li>Future token value, price appreciation, or material wealth</li>
+                <li>Investment returns, profitability, or financial abundance</li>
+                <li>Market performance, stability, or divine intervention in markets</li>
+                <li>Spiritual enlightenment, cosmic alignment, or angelic contact</li>
+                <li>Accuracy of angel readings, number interpretations, or mystical guidance</li>
+                <li>Continued operation of the platform or divine website maintenance</li>
+            </ul>
+
+            <h2>🌍 Earthly Regulatory Compliance</h2>
+            <ul>
+                <li><strong>Check Local Laws:</strong> Cryptocurrency regulations vary by earthly jurisdiction</li>
+                <li><strong>Compliance Responsibility:</strong> Users must ensure local law compliance</li>
+                <li><strong>No Legal Advice:</strong> We do not provide legal, regulatory, or spiritual authority guidance</li>
+                <li><strong>Restricted Realms:</strong> Some earthly locations may prohibit participation</li>
+            </ul>
+
+            <h2>🛡️ Platform & Spiritual Content Limitations</h2>
+            <p><strong>Technical, operational, and mystical risks:</strong></p>
+            <ul>
+                <li><strong>Smart Contract Risk:</strong> Code vulnerabilities may exist in earthly technology</li>
+                <li><strong>Platform Downtime:</strong> Divine servers may experience earthly interruptions</li>
+                <li><strong>No Customer Support:</strong> Limited earthly technical or spiritual support available</li>
+                <li><strong>Third-Party Dependencies:</strong> Reliance on external blockchain networks and cosmic forces</li>
+                <li><strong>Entertainment Content Risk:</strong> Spiritual content may be misinterpreted or taken too seriously</li>
+            </ul>
+
+            <h2>🔒 Personal Responsibility & Divine Accountability</h2>
+            <div class="warning-box">
+                <strong>BY PARTICIPATING IN 613 COIN, YOU ACKNOWLEDGE:</strong>
+            </div>
+            <ul>
+                <li>You understand this is entertainment and spiritual reflection, not investment or life guidance</li>
+                <li>You can afford to lose any earthly money spent on 613 tokens</li>
+                <li>You have not relied on any mystical statements as investment or life advice</li>
+                <li>You accept full responsibility for your earthly and spiritual decisions</li>
+                <li>You understand all material and cosmic risks outlined above</li>
+                <li>You will not base important life decisions on entertainment angel readings</li>
+                <li>You recognize the difference between entertainment and genuine spiritual practice</li>
+            </ul>
+
+            <h2>📜 Sacred Legal Disclaimers</h2>
+            <ul>
+                <li><strong>No Liability:</strong> 613 Coin creators accept no liability for earthly or spiritual losses</li>
+                <li><strong>Use at Own Risk:</strong> All participation is entirely at your own cosmic risk</li>
+                <li><strong>No Sacred Partnership:</strong> No business or spiritual relationship is created by participation</li>
+                <li><strong>Subject to Divine Change:</strong> These terms may be updated without earthly or celestial notice</li>
+                <li><strong>Entertainment Only:</strong> All spiritual content is fictional entertainment, not genuine mystical guidance</li>
+            </ul>
+
+            <h2>🎯 Age and Spiritual Capacity Requirements</h2>
+            <ul>
+                <li>Must be 18+ years old to participate in earthly transactions</li>
+                <li>Must have legal capacity to enter agreements in your earthly realm</li>
+                <li>Must not be from restricted jurisdictions or forbidden dimensions</li>
+                <li>Must understand cryptocurrency risks and entertainment content nature</li>
+                <li>Must be able to distinguish between entertainment and genuine spiritual guidance</li>
+            </ul>
+
+            <h2>🕊️ Angel Number 613 & Biblical Connection Disclaimer</h2>
+            <div class="spiritual-box">
+                <strong>SACRED TRADITION RESPECT NOTICE:</strong>
+            </div>
+            <ul>
+                <li>References to 613 commandments (mitzvot) are for educational entertainment only</li>
+                <li>We do not claim religious authority or authentic spiritual interpretation</li>
+                <li>Biblical and Jewish tradition references are used respectfully for cultural context</li>
+                <li>This meme coin does not represent or endorse any religious institution</li>
+                <li>Users should consult genuine religious authorities for authentic spiritual guidance</li>
+                <li>Our angel number interpretations are entertainment, not theology</li>
+            </ul>
+
+            <div class="warning-box">
+                <h3 style="color: #FFFFFF; margin-bottom: 1rem;">🌟 Remember: It's About Divine Fun!</h3>
+                <p><strong>613 Coin exists to bring joy, laughter, spiritual reflection, and community to the crypto space. Participate for the entertainment value, engage with mystical themes, enjoy the angel wisdom content, and have cosmic fun - but never risk money you can't afford to lose or base important life decisions on our entertainment content!</strong></p>
+            </div>
+        </div>
+
+        <div class="back-button">
+            <a href="#" class="back-btn">👼 Return to Angel Wisdom</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">👼 Angel Wisdom</a>
+            <a href="#token-info">🪙 613 Token</a>
+            <a href="#">⚠️ Disclaimer</a>
+        </div>
+        
+        <div class="disclaimer">
+            <h3 style="color: #FFD700; text-align: center; margin-bottom: 1rem;">⚠️ SACRED MEME COIN DISCLAIMER</h3>
+            <p style="text-align: center; line-height: 1.6;">
+                <strong>613 COIN IS FOR ENTERTAINMENT PURPOSES ONLY.</strong> This is a meme coin with no intrinsic value or expectation of financial return. 
+                There is no formal team or roadmap. The coin is completely useless and for entertainment only. 
+                Do not invest money you cannot afford to lose. Cryptocurrency investments are highly speculative and volatile. 
+                Past performance does not guarantee future results. All angel readings, spiritual guidance, and predictions are for entertainment purposes only and should not be considered financial advice or genuine spiritual guidance. 
+                Please invest responsibly and only participate if you understand and accept the risks involved.
+            </p>
+        </div>
+        
+        <div class="copyright">
+            © 2025 613 Coin • Built with 👼 divine guidance and ✨ celestial purpose • Entertainment Only
+        </div>
+        
+        <div class="community-message">
+            "Let the angels guide your crypto journey with wisdom, love, and divine timing."
+        </div>
+        
+        <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">
+            <strong>Last Updated:</strong> July 10, 2025<br>
+            <em>This disclaimer is provided for entertainment and informational purposes and does not constitute legal, financial, or spiritual advice. Consult qualified professionals for financial, legal, and genuine spiritual guidance.</em>
+        </div>
+    </footer>
+</body>
+</html>
