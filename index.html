@@ -14,6 +14,104 @@
             color: white;
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Divine Video-like Background Effects */
+        .divine-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 60% 70%, rgba(104, 174, 52, 0.15) 1.5px, transparent 1.5px);
+            background-size: 100px 100px, 150px 150px, 200px 200px, 120px 120px;
+            animation: divineFloat 30s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes divineFloat {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-15px) translateY(-20px); }
+            50% { transform: translateX(10px) translateY(-15px); }
+            75% { transform: translateX(-8px) translateY(-10px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        /* Angel Wings Rotation */
+        .angel-wings {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                conic-gradient(from 0deg at 25% 25%, transparent 70%, rgba(255, 215, 0, 0.08) 90%, transparent),
+                conic-gradient(from 180deg at 75% 75%, transparent 70%, rgba(255, 255, 255, 0.06) 90%, transparent),
+                conic-gradient(from 90deg at 50% 50%, transparent 80%, rgba(104, 174, 52, 0.05) 95%, transparent);
+            background-size: 400px 400px, 350px 350px, 500px 500px;
+            animation: angelicRotation 45s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes angelicRotation {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.05); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Divine Light Rays */
+        .light-rays {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            background: 
+                linear-gradient(45deg, transparent 49%, rgba(255, 215, 0, 0.08) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(255, 255, 255, 0.04) 50%, transparent 51%),
+                linear-gradient(135deg, transparent 49%, rgba(255, 215, 0, 0.06) 50%, transparent 51%),
+                linear-gradient(-135deg, transparent 49%, rgba(104, 174, 52, 0.04) 50%, transparent 51%);
+            background-size: 150px 150px, 200px 200px, 180px 180px, 220px 220px;
+            animation: lightRaysRotation 35s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes lightRaysRotation {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Sacred Geometry Patterns */
+        .sacred-geometry {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 30% 70%, transparent 30px, rgba(255, 215, 0, 0.08) 31px, rgba(255, 215, 0, 0.08) 32px, transparent 33px),
+                radial-gradient(circle at 70% 30%, transparent 40px, rgba(255, 255, 255, 0.06) 41px, rgba(255, 255, 255, 0.06) 42px, transparent 43px),
+                radial-gradient(circle at 20% 20%, transparent 25px, rgba(104, 174, 52, 0.05) 26px, rgba(104, 174, 52, 0.05) 27px, transparent 28px);
+            background-size: 300px 300px, 250px 250px, 200px 200px;
+            animation: geometryPulse 25s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes geometryPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.9; }
         }
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
@@ -95,7 +193,7 @@
         .main-content {
             margin-top: 120px; padding: 2rem;
             max-width: 1400px; margin-left: auto; margin-right: auto;
-            position: relative; z-index: 2;
+            position: relative; z-index: 10;
         }
         
         /* Hero Section */
@@ -428,6 +526,12 @@
     </style>
 </head>
 <body>
+    <!-- Divine Background Effects -->
+    <div class="divine-particles"></div>
+    <div class="angel-wings"></div>
+    <div class="light-rays"></div>
+    <div class="sacred-geometry"></div>
+    
     <!-- Floating Elements -->
     <div class="floating-elements" id="floatingElements"></div>
     
