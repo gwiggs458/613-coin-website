@@ -617,7 +617,7 @@
                 </div>
                 
                 <div style="text-align: center; margin-top: 2rem;">
-                    <button class="get-613-btn" onclick="window.open('#', '_blank')">
+                    <button class="get-613-btn" onclick="window.open('https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986?inputCurrency=0x0c9e79c8b60abc3519a6b1d35b80a2d845020986', '_blank')">
                         🪙 GET 613 COIN
                     </button>
                 </div>
@@ -685,7 +685,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 2rem;">
-                <button class="get-613-btn" onclick="window.open('#', '_blank')">
+                <button class="get-613-btn" onclick="window.open('https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986?inputCurrency=0x0c9e79c8b60abc3519a6b1d35b80a2d845020986', '_blank')">
                     🪙 GET 613 COIN
                 </button>
             </div>
@@ -776,7 +776,7 @@
                 <p style="color: #E8E8FF; margin-bottom: 2rem; font-size: 1.2rem;">
                     Align your journey with celestial wisdom. Get 613 Coin and become part of our angelic community.
                 </p>
-                <button class="get-613-btn" onclick="window.open('#', '_blank')" style="font-size: 1.3rem; padding: 1.2rem 3rem;">
+                <button class="get-613-btn" onclick="window.open('https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986?inputCurrency=0x0c9e79c8b60abc3519a6b1d35b80a2d845020986', '_blank')" style="font-size: 1.3rem; padding: 1.2rem 3rem;">
                     🪙 GET 613 COIN
                 </button>
             </div>
@@ -818,7 +818,7 @@
             <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
                 <div style="text-align: center;">
                     <div style="font-size: 8rem; margin-bottom: 1rem;">🔮</div>
-                    <div style="color: #FFD700; font-weight: bold;">Week of January 6-12, 2025</div>
+                    <div style="color: #FFD700; font-weight: bold;" id="currentWeek">This Week</div>
                 </div>
                 <div>
                     <h3 style="color: #FFD700; margin-bottom: 1rem;">✨ DIVINE GUIDANCE: PATIENCE & TRUST</h3>
@@ -1149,8 +1149,43 @@
         // Initialize everything
         document.addEventListener('DOMContentLoaded', function() {
             createFloatingElements();
+            updateCurrentWeek();
             console.log('👼 Angel Wisdom page loaded with divine blessings!');
         });
+
+        // Update current week display
+        function updateCurrentWeek() {
+            const currentWeekElement = document.getElementById('currentWeek');
+            const now = new Date();
+            
+            // Get start of week (Sunday)
+            const startOfWeek = new Date(now);
+            startOfWeek.setDate(now.getDate() - now.getDay());
+            
+            // Get end of week (Saturday)
+            const endOfWeek = new Date(startOfWeek);
+            endOfWeek.setDate(startOfWeek.getDate() + 6);
+            
+            // Format dates
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"];
+            
+            const startMonth = monthNames[startOfWeek.getMonth()];
+            const endMonth = monthNames[endOfWeek.getMonth()];
+            const startDay = startOfWeek.getDate();
+            const endDay = endOfWeek.getDate();
+            const year = now.getFullYear();
+            
+            // Format the week range
+            let weekRange;
+            if (startOfWeek.getMonth() === endOfWeek.getMonth()) {
+                weekRange = `Week of ${startMonth} ${startDay}-${endDay}, ${year}`;
+            } else {
+                weekRange = `Week of ${startMonth} ${startDay} - ${endMonth} ${endDay}, ${year}`;
+            }
+            
+            currentWeekElement.textContent = weekRange;
+        }
 
         // Add some sparkle effects on scroll
         window.addEventListener('scroll', function() {
