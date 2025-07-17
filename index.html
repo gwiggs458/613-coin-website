@@ -481,6 +481,87 @@
             board.insertBefore(newIntention, board.children[1]);
         }
 
+        // Weekly Angel Reading Rotator
+        const weeklyReadings = [
+            {
+                icon: "🔮",
+                title: "✨ DIVINE GUIDANCE: PATIENCE & TRUST",
+                text: "The angels remind you that divine timing is at work this week. Current market conditions are preparing you for greater abundance. Trust the process and stay aligned with your values. A significant opportunity will present itself when you least expect it, but most need it. Keep your heart open to receiving guidance through signs, synchronicities, and inner knowing.",
+                action: "Spend 5 minutes each morning in gratitude meditation before checking crypto prices."
+            },
+            {
+                icon: "🌟",
+                title: "💫 CELESTIAL WISDOM: TRANSFORMATION AHEAD",
+                text: "This week brings powerful transformative energies that will reshape your financial landscape. The angels are orchestrating changes that align with your soul's purpose. Release old patterns that no longer serve you, and embrace the new opportunities flowing your way. Your willingness to evolve will be richly rewarded.",
+                action: "Write down three limiting beliefs about money and consciously release them each day."
+            },
+            {
+                icon: "🕊️",
+                title: "🙏 SACRED GUIDANCE: INNER WISDOM AWAKENS",
+                text: "Your intuitive abilities are heightened this week, creating a direct channel to angelic guidance. Pay attention to your first thoughts and gut feelings about investment decisions. The angels speak through your inner knowing more clearly now than ever before. Trust what you feel, not just what you think.",
+                action: "Before making any financial decision, pause and ask: 'What does my heart tell me?'"
+            },
+            {
+                icon: "⭐",
+                title: "🌈 DIVINE ABUNDANCE: PROSPERITY FLOWS",
+                text: "This week marks a significant shift in your relationship with abundance. The universe is opening new channels of prosperity that extend beyond material wealth. Your generous spirit and aligned actions are creating ripple effects of positive energy. Expect unexpected blessings from multiple sources.",
+                action: "Practice giving something valuable (time, knowledge, or resources) to someone in need daily."
+            },
+            {
+                icon: "🦋",
+                title: "🌸 ANGELIC SUPPORT: HEALING & RENEWAL",
+                text: "The angels surround you with healing energy this week, helping you release financial fears and past disappointments. This is a time of emotional and spiritual renewal that will impact your relationship with money and success. Allow yourself to dream bigger and believe in miraculous possibilities.",
+                action: "Each evening, write down three things you're grateful for regarding your financial journey."
+            },
+            {
+                icon: "🌙",
+                title: "✨ LUNAR WISDOM: CYCLES OF GROWTH",
+                text: "This week teaches you about the natural cycles of expansion and contraction in both markets and life. Just as the moon waxes and wanes, your financial journey has seasons. The angels want you to understand that apparent setbacks are actually setups for greater success. Flow with the rhythm.",
+                action: "Study market cycles and align your decisions with natural timing rather than forcing outcomes."
+            },
+            {
+                icon: "🔥",
+                title: "⚡ DIVINE BREAKTHROUGH: BREAKING BARRIERS",
+                text: "Powerful breakthrough energy surrounds you this week as the angels help you shatter limitations and breakthrough to new levels of success. Old barriers that seemed insurmountable are dissolving. Your persistence and faith are about to be rewarded in ways that exceed your expectations.",
+                action: "Identify your biggest financial goal and take one bold action toward it each day this week."
+            },
+            {
+                icon: "🌺",
+                title: "💖 HEART-CENTERED WEALTH: LOVE AS CURRENCY",
+                text: "This week, the angels teach you that true wealth flows from a heart aligned with love and service. Your financial success multiplies when it's rooted in your desire to help others and contribute to the greater good. Lead with love in all your financial decisions and watch abundance bloom.",
+                action: "Before any transaction, ask yourself: 'How can this serve the highest good of all involved?'"
+            },
+            {
+                icon: "🎯",
+                title: "🚀 FOCUSED INTENTION: MANIFESTATION POWER",
+                text: "Your manifestation abilities are at their peak this week. The angels have aligned cosmic energies to support your focused intentions around financial goals. This is your time to be crystal clear about what you want and take inspired action. The universe is listening and ready to respond.",
+                action: "Create a detailed vision board of your financial goals and spend 10 minutes daily visualizing their completion."
+            },
+            {
+                icon: "🌊",
+                title: "🌀 FLOWING ABUNDANCE: RIDE THE WAVE",
+                text: "This week brings a powerful wave of abundance that you're invited to surf with grace and wisdom. The angels remind you that resistance creates struggle, while flowing with divine timing creates ease. Trust the current of prosperity that's carrying you toward your highest good and greatest joy.",
+                action: "Practice saying 'yes' to opportunities that feel aligned, even if they seem unconventional."
+            }
+        ];
+
+        function updateWeeklyReading() {
+            // Calculate which reading to show based on week of year
+            const now = new Date();
+            const startOfYear = new Date(now.getFullYear(), 0, 1);
+            const daysSinceStart = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000));
+            const weekOfYear = Math.floor(daysSinceStart / 7);
+            
+            // Cycle through the 10 readings
+            const readingIndex = weekOfYear % weeklyReadings.length;
+            const currentReading = weeklyReadings[readingIndex];
+            
+            // Update the display
+            document.getElementById('weeklyReadingIcon').textContent = currentReading.icon;
+            document.getElementById('weeklyReadingTitle').textContent = currentReading.title;
+            document.getElementById('weeklyReadingText').textContent = currentReading.text;
+            document.getElementById('weeklyReadingAction').textContent = currentReading.action;
+        }
         // Update current week display
         function updateCurrentWeek() {
             const currentWeekElement = document.getElementById('currentWeek');
@@ -525,6 +606,7 @@
             // Original functionality
             createFloatingElements();
             updateCurrentWeek();
+            updateWeeklyReading();
             
             console.log('✨ 613 Coin Angel Wisdom - Phase 1 Enhanced!');
             console.log('🎵 Audio system initialized');
@@ -532,6 +614,7 @@
             console.log('🔄 Auto-rotating messages started');
             console.log('📋 Copy-to-clipboard enabled');
             console.log('🎨 Micro-animations enhanced');
+            console.log('📖 Weekly readings rotating automatically');
         });
 
         // Add some sparkle effects on scroll
@@ -1282,12 +1365,6 @@
                     </div>
                     <div class="message-time" id="messageTime">Morning Guidance</div>
                     <button class="copy-btn" onclick="copyMessage()" id="copyMessageBtn">📋 Copy</button>
-                    <div class="message-rotation-indicator" id="rotationIndicator">
-                        <span>Auto-rotating</span>
-                        <div class="rotation-dot"></div>
-                        <div class="rotation-dot" style="animation-delay: 0.5s;"></div>
-                        <div class="rotation-dot" style="animation-delay: 1s;"></div>
-                    </div>
                 </div>
             </section>
         </div>
