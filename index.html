@@ -1,4 +1,583 @@
-.copy-btn:hover {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Wisdom - 613 Coin Divine Guidance</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a1233, #1b2d4e, #2c4a7a, #68ae34);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Divine Video-like Background Effects */
+        .divine-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 60% 70%, rgba(104, 174, 52, 0.15) 1.5px, transparent 1.5px);
+            background-size: 100px 100px, 150px 150px, 200px 200px, 120px 120px;
+            animation: divineFloat 30s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes divineFloat {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-15px) translateY(-20px); }
+            50% { transform: translateX(10px) translateY(-15px); }
+            75% { transform: translateX(-8px) translateY(-10px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        /* Angel Wings Rotation */
+        .angel-wings {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                conic-gradient(from 0deg at 25% 25%, transparent 70%, rgba(255, 215, 0, 0.08) 90%, transparent),
+                conic-gradient(from 180deg at 75% 75%, transparent 70%, rgba(255, 255, 255, 0.06) 90%, transparent),
+                conic-gradient(from 90deg at 50% 50%, transparent 80%, rgba(104, 174, 52, 0.05) 95%, transparent);
+            background-size: 400px 400px, 350px 350px, 500px 500px;
+            animation: angelicRotation 45s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes angelicRotation {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.05); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Divine Light Rays */
+        .light-rays {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            background: 
+                linear-gradient(45deg, transparent 49%, rgba(255, 215, 0, 0.08) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(255, 255, 255, 0.04) 50%, transparent 51%),
+                linear-gradient(135deg, transparent 49%, rgba(255, 215, 0, 0.06) 50%, transparent 51%),
+                linear-gradient(-135deg, transparent 49%, rgba(104, 174, 52, 0.04) 50%, transparent 51%);
+            background-size: 150px 150px, 200px 200px, 180px 180px, 220px 220px;
+            animation: lightRaysRotation 35s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes lightRaysRotation {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Sacred Geometry Patterns */
+        .sacred-geometry {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 30% 70%, transparent 30px, rgba(255, 215, 0, 0.08) 31px, rgba(255, 215, 0, 0.08) 32px, transparent 33px),
+                radial-gradient(circle at 70% 30%, transparent 40px, rgba(255, 255, 255, 0.06) 41px, rgba(255, 255, 255, 0.06) 42px, transparent 43px),
+                radial-gradient(circle at 20% 20%, transparent 25px, rgba(104, 174, 52, 0.05) 26px, rgba(104, 174, 52, 0.05) 27px, transparent 28px);
+            background-size: 300px 300px, 250px 250px, 200px 200px;
+            animation: geometryPulse 25s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes geometryPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.9; }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+        .floating-feather {
+            position: absolute; color: rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem; animation: floatFeather 20s linear infinite;
+        }
+        @keyframes floatFeather {
+            0% { transform: translateY(100vh) rotate(0deg) translateX(0px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg) translateX(50px); opacity: 0; }
+        }
+        .divine-light {
+            position: absolute; width: 2px; height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.3), transparent);
+            animation: lightRay 8s ease-in-out infinite;
+        }
+        @keyframes lightRay {
+            0%, 100% { opacity: 0; transform: scaleY(0); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+        
+        /* Header */
+        .header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
+            border-bottom: 3px solid #FFD700; z-index: 1000;
+            padding: 1rem 2rem; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+        .nav {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .logo {
+            display: flex; align-items: center; font-size: 1.4rem;
+            font-weight: bold; color: #FFD700;
+        }
+        .coin-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin-right: 12px;
+            font-size: 16px; font-weight: 900; color: #1a0d33;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            border: 2px solid #68ae34;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .coin-icon img {
+            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+        }
+        .coin-icon::after {
+            content: '👼'; position: absolute; right: -8px; top: -5px;
+            font-size: 18px; z-index: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        .nav-links {
+            display: flex; gap: 1rem; flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white; text-decoration: none; transition: all 0.3s;
+            padding: 0.5rem 1rem; border-radius: 8px;
+            font-size: 0.9rem; font-weight: bold;
+            border: 1px solid transparent;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #FFD700; background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700; transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-top: 120px; padding: 2rem;
+            max-width: 1400px; margin-left: auto; margin-right: auto;
+            position: relative; z-index: 10;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            text-align: center; margin-bottom: 4rem;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(255, 215, 0, 0.1));
+            border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 25px;
+            padding: 4rem 2rem; position: relative; overflow: hidden;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .angel-halo {
+            width: 150px; height: 150px; margin: 0 auto 2rem;
+            border: 3px solid #FFD700; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+            animation: pulse 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .angel-halo img {
+            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+            position: absolute;
+            top: 0; left: 0;
+        }
+        .angel-halo .angel-emoji {
+            position: absolute; right: -10px; top: -8px; font-size: 28px; z-index: 3;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
+        }
+        .page-title {
+            font-size: 3.5rem; margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFFFFF, #FFD700, #FFFFFF);
+            background-size: 400% 400%; animation: shimmer 4s ease-in-out infinite;
+            background-clip: text; -webkit-background-clip: text; color: transparent;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            font-weight: 900; filter: brightness(1.3);
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .angel-subtitle {
+            font-size: 1.5rem; color: #FFFFFF; margin-bottom: 1rem;
+            font-style: italic; font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .page-description {
+            font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; 
+            color: #E8E8FF; line-height: 1.6;
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 3rem; margin-bottom: 4rem;
+        }
+        
+        /* Angel Number Deep Dive */
+        .angel-number-section {
+            background: rgba(0, 0, 0, 0.7); border: 2px solid #FFD700;
+            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.8rem; color: #FFD700; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            border-bottom: 2px solid #FFD700; padding-bottom: 0.5rem;
+        }
+        .number-breakdown {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0;
+        }
+        .number-card {
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid #FFD700; border-radius: 15px; padding: 1.5rem;
+            text-align: center; transition: transform 0.3s ease;
+        }
+        .number-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        .number-digit {
+            font-size: 3rem; font-weight: 900; color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+        .number-meaning {
+            font-size: 0.9rem; color: #E8E8FF; margin-top: 0.5rem; line-height: 1.4;
+        }
+        
+        /* Daily Messages */
+        .daily-messages {
+            background: rgba(0, 0, 0, 0.7); border: 2px solid #68ae34;
+            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
+        }
+        .message-tabs {
+            display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;
+        }
+        .tab-btn {
+            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
+            border: none; padding: 0.8rem 1.5rem; border-radius: 25px;
+            font-weight: bold; cursor: pointer; transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(104, 174, 52, 0.3);
+        }
+        .tab-btn:hover, .tab-btn.active {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
+        }
+        .message-content {
+            background: rgba(255, 255, 255, 0.05); border-radius: 15px;
+            padding: 2rem; border-left: 5px solid #FFD700;
+            text-align: center; min-height: 150px;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column;
+        }
+        .message-text {
+            font-size: 1.2rem; font-style: italic; color: #FFFFFF;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1rem; line-height: 1.6;
+        }
+        .message-time {
+            font-size: 0.9rem; color: #FFD700; font-weight: bold;
+        }
+        
+        /* Interactive Tools Section */
+        .tools-section {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem; margin-bottom: 4rem;
+        }
+        .tool-card {
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #68ae34;
+            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(104, 174, 52, 0.3);
+        }
+        .tool-title {
+            font-size: 1.4rem; color: #FFD700; margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        
+        /* Angel Number Calculator */
+        .calculator-input {
+            width: 100%; padding: 1rem; border: 2px solid #68ae34;
+            border-radius: 10px; background: rgba(255, 255, 255, 0.1);
+            color: white; font-size: 1rem; margin-bottom: 1rem;
+        }
+        .calculator-input::placeholder { color: rgba(255, 255, 255, 0.7); }
+        .calculate-btn {
+            width: 100%; background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #1a0d33; border: none; padding: 1rem; border-radius: 10px;
+            font-size: 1rem; font-weight: bold; cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+        .calculation-result {
+            margin-top: 1rem; padding: 1rem; background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #FFD700; border-radius: 10px; display: none;
+        }
+        
+        /* Oracle Cards */
+        .oracle-card {
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05));
+            border: 3px solid #FFD700; border-radius: 20px; padding: 2rem;
+            text-align: center; cursor: pointer; transition: all 0.3s ease;
+            min-height: 200px; display: flex; align-items: center;
+            justify-content: center; flex-direction: column;
+        }
+        .oracle-card:hover {
+            transform: rotateY(5deg) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+        .card-back {
+            font-size: 3rem; margin-bottom: 1rem;
+        }
+        .card-message {
+            font-size: 1.1rem; font-style: italic; color: #FFFFFF;
+            display: none; line-height: 1.6;
+        }
+        .draw-card-btn {
+            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
+            border: none; padding: 1rem 2rem; border-radius: 25px;
+            font-weight: bold; cursor: pointer; margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .draw-card-btn:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
+        }
+        
+        /* Commandments Section */
+        .commandments-section {
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #FFD700;
+            border-radius: 20px; padding: 3rem; margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+        }
+        .commandments-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; margin-top: 2rem;
+        }
+        .commandment-item {
+            background: linear-gradient(45deg, rgba(104, 174, 52, 0.1), rgba(255, 215, 0, 0.05));
+            border-left: 5px solid #68ae34; border-radius: 10px;
+            padding: 1.5rem; transition: all 0.3s ease;
+        }
+        .commandment-item:hover {
+            transform: translateX(10px); border-left-color: #FFD700;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(104, 174, 52, 0.1));
+        }
+        .commandment-text {
+            font-size: 1.1rem; color: #FFFFFF; font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .commandment-description {
+            font-size: 0.9rem; color: #E8E8FF; opacity: 0.9; line-height: 1.4;
+        }
+        
+        /* Meditation Section */
+        .meditation-section {
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(104, 174, 52, 0.1));
+            border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 25px;
+            padding: 3rem; margin-bottom: 4rem; text-align: center;
+        }
+        .meditation-player {
+            background: rgba(0, 0, 0, 0.5); border-radius: 20px;
+            padding: 2rem; margin: 2rem 0;
+        }
+        .play-meditation-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
+            border: none; padding: 1rem 2rem; border-radius: 50px;
+            font-size: 1.2rem; font-weight: bold; cursor: pointer;
+            transition: all 0.3s ease; margin: 1rem;
+        }
+        .play-meditation-btn:hover {
+            transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+        .affirmation-text {
+            font-size: 1.3rem; font-style: italic; color: #FFFFFF;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            line-height: 1.8; margin: 2rem 0;
+        }
+        
+        /* Community Section */
+        .community-section {
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #68ae34;
+            border-radius: 20px; padding: 3rem; margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+        }
+        .intention-form {
+            background: rgba(255, 255, 255, 0.05); border-radius: 15px;
+            padding: 2rem; margin: 2rem 0;
+        }
+        .intention-input {
+            width: 100%; padding: 1rem; border: 2px solid #68ae34;
+            border-radius: 10px; background: rgba(255, 255, 255, 0.1);
+            color: white; font-size: 1rem; margin-bottom: 1rem;
+            min-height: 100px; resize: vertical;
+        }
+        .submit-intention-btn {
+            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
+            border: none; padding: 1rem 2rem; border-radius: 25px;
+            font-weight: bold; cursor: pointer; transition: all 0.3s ease;
+        }
+        .submit-intention-btn:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
+        }
+        .intention-board {
+            margin-top: 2rem;
+        }
+        .intention-item {
+            background: rgba(255, 215, 0, 0.1); border: 1px solid #FFD700;
+            border-radius: 10px; padding: 1rem; margin-bottom: 1rem;
+            border-left: 5px solid #68ae34;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.95); border-top: 3px solid #FFD700;
+            padding: 2rem; margin-top: 3rem; text-align: center;
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #FFD700; text-decoration: none; font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: #FFFFFF; }
+        
+        .get-613-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #1a0d33; border: none; padding: 1rem 2rem;
+            border-radius: 50px; font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: all 0.3s ease;
+            margin: 1rem auto; display: block;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            animation: coinGlow 2s ease-in-out infinite alternate;
+        }
+        .get-613-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+        }
+        @keyframes coinGlow {
+            0% { box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4); }
+            100% { box-shadow: 0 5px 20px rgba(255, 215, 0, 0.7); }
+        }
+
+        /* Phase 1 Enhancements - Progressive Loading Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Enhanced Micro-animations */
+        .enhanced-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .enhanced-hover:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+        
+        .pulse-gentle {
+            animation: pulseGentle 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGentle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .bounce-subtle {
+            transition: transform 0.2s ease;
+        }
+        
+        .bounce-subtle:active {
+            transform: scale(0.98);
+        }
+        
+        /* Copy button animations */
+        .copy-btn {
+            background: linear-gradient(45deg, #68ae34, #9dd66d);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 0.5rem;
+            opacity: 0.8;
+        }
+        
+        .copy-btn:hover {
             opacity: 1;
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(104, 174, 52, 0.4);
@@ -47,7 +626,7 @@
             </div>
             <div class="nav-links">
                 <a href="#" class="active">👼 ANGEL WISDOM</a>
-                <a href="https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986?inputCurrency=0x0c9e79c8b60abc3519a6b1d35b80a2d845020986" target="_blank">🪙 613 TOKEN</a>
+                <a href="https://www.dextools.io/app/en/polygon/pair-explorer/0x87be9de4de0a06b36dcb12789f4a18e3661916f4?t=1754679478988" target="_blank">🪙 613 TOKEN</a>
                 <a href="https://613coin.com/disclaimer.html">⭐ DISCLAIMER</a>
                 <a href="https://x.com/613Coin" target="_blank" style="font-size: 1.1rem;">𝕏</a>
                 <a href="https://t.me/angel613coin" target="_blank" style="font-size: 1.1rem;">📱</a>
@@ -124,7 +703,7 @@
                 </div>
                 
                 <div style="text-align: center; margin-top: 2rem;">
-                    <button class="get-613-btn bounce-subtle" onclick="window.open('https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986?inputCurrency=0x0c9e79c8b60abc3519a6b1d35b80a2d845020986', '_blank')">
+                    <button class="get-613-btn bounce-subtle" onclick="window.open('https://www.dextools.io/app/en/polygon/pair-explorer/0x87be9de4de0a06b36dcb12789f4a18e3661916f4?t=1754679478988', '_blank')">
                         🪙 GET 613 COIN
                     </button>
                 </div>
@@ -234,7 +813,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 2rem;">
-                <button class="get-613-btn bounce-subtle" onclick="window.open('https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986?inputCurrency=0x0c9e79c8b60abc3519a6b1d35b80a2d845020986', '_blank')">
+                <button class="get-613-btn bounce-subtle" onclick="window.open('https://www.dextools.io/app/en/polygon/pair-explorer/0x87be9de4de0a06b36dcb12789f4a18e3661916f4?t=1754679478988', '_blank')">
                     🪙 GET 613 COIN
                 </button>
             </div>
@@ -326,7 +905,7 @@
                 <p style="color: #E8E8FF; margin-bottom: 2rem; font-size: 1.2rem;">
                     Align your journey with celestial wisdom. Get 613 Coin and become part of our angelic community.
                 </p>
-                <button class="get-613-btn" onclick="window.open('https://app.uniswap.org/explore/tokens/polygon/0x0c9e79c8b60abc3519a6b1d35b80a2d845020986?inputCurrency=0x0c9e79c8b60abc3519a6b1d35b80a2d845020986', '_blank')" style="font-size: 1.3rem; padding: 1.2rem 3rem;">
+                <button class="get-613-btn" onclick="window.open('https://www.dextools.io/app/en/polygon/pair-explorer/0x87be9de4de0a06b36dcb12789f4a18e3661916f4?t=1754679478988', '_blank')" style="font-size: 1.3rem; padding: 1.2rem 3rem;">
                     🪙 GET 613 COIN
                 </button>
             </div>
@@ -1031,585 +1610,4 @@
         }, { once: true });
     </script>
 </body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angel Wisdom - 613 Coin Divine Guidance</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a1233, #1b2d4e, #2c4a7a, #68ae34);
-            background-size: 400% 400%;
-            animation: gradientShift 12s ease infinite;
-            color: white;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        /* Divine Video-like Background Effects */
-        .divine-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 2px, transparent 2px),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.2) 1px, transparent 1px),
-                radial-gradient(circle at 60% 70%, rgba(104, 174, 52, 0.15) 1.5px, transparent 1.5px);
-            background-size: 100px 100px, 150px 150px, 200px 200px, 120px 120px;
-            animation: divineFloat 30s linear infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes divineFloat {
-            0% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(-15px) translateY(-20px); }
-            50% { transform: translateX(10px) translateY(-15px); }
-            75% { transform: translateX(-8px) translateY(-10px); }
-            100% { transform: translateX(0) translateY(0); }
-        }
-
-        /* Angel Wings Rotation */
-        .angel-wings {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                conic-gradient(from 0deg at 25% 25%, transparent 70%, rgba(255, 215, 0, 0.08) 90%, transparent),
-                conic-gradient(from 180deg at 75% 75%, transparent 70%, rgba(255, 255, 255, 0.06) 90%, transparent),
-                conic-gradient(from 90deg at 50% 50%, transparent 80%, rgba(104, 174, 52, 0.05) 95%, transparent);
-            background-size: 400px 400px, 350px 350px, 500px 500px;
-            animation: angelicRotation 45s linear infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes angelicRotation {
-            0% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(90deg) scale(1.05); }
-            50% { transform: rotate(180deg) scale(1); }
-            75% { transform: rotate(270deg) scale(1.05); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        /* Divine Light Rays */
-        .light-rays {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 200%;
-            height: 200%;
-            transform: translate(-50%, -50%);
-            background: 
-                linear-gradient(45deg, transparent 49%, rgba(255, 215, 0, 0.08) 50%, transparent 51%),
-                linear-gradient(-45deg, transparent 49%, rgba(255, 255, 255, 0.04) 50%, transparent 51%),
-                linear-gradient(135deg, transparent 49%, rgba(255, 215, 0, 0.06) 50%, transparent 51%),
-                linear-gradient(-135deg, transparent 49%, rgba(104, 174, 52, 0.04) 50%, transparent 51%);
-            background-size: 150px 150px, 200px 200px, 180px 180px, 220px 220px;
-            animation: lightRaysRotation 35s linear infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes lightRaysRotation {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* Sacred Geometry Patterns */
-        .sacred-geometry {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 30% 70%, transparent 30px, rgba(255, 215, 0, 0.08) 31px, rgba(255, 215, 0, 0.08) 32px, transparent 33px),
-                radial-gradient(circle at 70% 30%, transparent 40px, rgba(255, 255, 255, 0.06) 41px, rgba(255, 255, 255, 0.06) 42px, transparent 43px),
-                radial-gradient(circle at 20% 20%, transparent 25px, rgba(104, 174, 52, 0.05) 26px, rgba(104, 174, 52, 0.05) 27px, transparent 28px);
-            background-size: 300px 300px, 250px 250px, 200px 200px;
-            animation: geometryPulse 25s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes geometryPulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
-            50% { transform: scale(1.1) rotate(180deg); opacity: 0.9; }
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Floating Elements */
-        .floating-elements {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1;
-        }
-        .floating-feather {
-            position: absolute; color: rgba(255, 255, 255, 0.1);
-            font-size: 1.5rem; animation: floatFeather 20s linear infinite;
-        }
-        @keyframes floatFeather {
-            0% { transform: translateY(100vh) rotate(0deg) translateX(0px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg) translateX(50px); opacity: 0; }
-        }
-        .divine-light {
-            position: absolute; width: 2px; height: 100px;
-            background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.3), transparent);
-            animation: lightRay 8s ease-in-out infinite;
-        }
-        @keyframes lightRay {
-            0%, 100% { opacity: 0; transform: scaleY(0); }
-            50% { opacity: 1; transform: scaleY(1); }
-        }
-        
-        /* Header */
-        .header {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
-            border-bottom: 3px solid #FFD700; z-index: 1000;
-            padding: 1rem 2rem; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
-        }
-        .nav {
-            display: flex; justify-content: space-between; align-items: center;
-            max-width: 1400px; margin: 0 auto;
-        }
-        .logo {
-            display: flex; align-items: center; font-size: 1.4rem;
-            font-weight: bold; color: #FFD700;
-        }
-        .coin-icon {
-            width: 50px; height: 50px;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; margin-right: 12px;
-            font-size: 16px; font-weight: 900; color: #1a0d33;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            border: 2px solid #68ae34;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .coin-icon img {
-            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
-        }
-        .coin-icon::after {
-            content: '👼'; position: absolute; right: -8px; top: -5px;
-            font-size: 18px; z-index: 2;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
-        .nav-links {
-            display: flex; gap: 1rem; flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: white; text-decoration: none; transition: all 0.3s;
-            padding: 0.5rem 1rem; border-radius: 8px;
-            font-size: 0.9rem; font-weight: bold;
-            border: 1px solid transparent;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #FFD700; background: rgba(255, 215, 0, 0.1);
-            border-color: #FFD700; transform: translateY(-2px);
-        }
-        
-        /* Main Content */
-        .main-content {
-            margin-top: 120px; padding: 2rem;
-            max-width: 1400px; margin-left: auto; margin-right: auto;
-            position: relative; z-index: 10;
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            text-align: center; margin-bottom: 4rem;
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(255, 215, 0, 0.1));
-            border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 25px;
-            padding: 4rem 2rem; position: relative; overflow: hidden;
-        }
-        .hero-section::before {
-            content: ''; position: absolute; top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
-        }
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .angel-halo {
-            width: 150px; height: 150px; margin: 0 auto 2rem;
-            border: 3px solid #FFD700; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
-            animation: pulse 3s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        .angel-halo img {
-            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
-            position: absolute;
-            top: 0; left: 0;
-        }
-        .angel-halo .angel-emoji {
-            position: absolute; right: -10px; top: -8px; font-size: 28px; z-index: 3;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
-            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
-        }
-        .page-title {
-            font-size: 3.5rem; margin-bottom: 1rem;
-            background: linear-gradient(45deg, #FFD700, #FFFFFF, #FFD700, #FFFFFF);
-            background-size: 400% 400%; animation: shimmer 4s ease-in-out infinite;
-            background-clip: text; -webkit-background-clip: text; color: transparent;
-            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
-            font-weight: 900; filter: brightness(1.3);
-        }
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .angel-subtitle {
-            font-size: 1.5rem; color: #FFFFFF; margin-bottom: 1rem;
-            font-style: italic; font-weight: bold;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .page-description {
-            font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; 
-            color: #E8E8FF; line-height: 1.6;
-        }
-        
-        /* Content Grid */
-        .content-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 3rem; margin-bottom: 4rem;
-        }
-        
-        /* Angel Number Deep Dive */
-        .angel-number-section {
-            background: rgba(0, 0, 0, 0.7); border: 2px solid #FFD700;
-            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
-        }
-        .section-title {
-            font-size: 1.8rem; color: #FFD700; margin-bottom: 1.5rem;
-            display: flex; align-items: center; gap: 0.5rem;
-            border-bottom: 2px solid #FFD700; padding-bottom: 0.5rem;
-        }
-        .number-breakdown {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0;
-        }
-        .number-card {
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05));
-            border: 2px solid #FFD700; border-radius: 15px; padding: 1.5rem;
-            text-align: center; transition: transform 0.3s ease;
-        }
-        .number-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-        .number-digit {
-            font-size: 3rem; font-weight: 900; color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-        }
-        .number-meaning {
-            font-size: 0.9rem; color: #E8E8FF; margin-top: 0.5rem; line-height: 1.4;
-        }
-        
-        /* Daily Messages */
-        .daily-messages {
-            background: rgba(0, 0, 0, 0.7); border: 2px solid #68ae34;
-            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
-        }
-        .message-tabs {
-            display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;
-        }
-        .tab-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
-            border: none; padding: 0.8rem 1.5rem; border-radius: 25px;
-            font-weight: bold; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(104, 174, 52, 0.3);
-        }
-        .tab-btn:hover, .tab-btn.active {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
-        }
-        .message-content {
-            background: rgba(255, 255, 255, 0.05); border-radius: 15px;
-            padding: 2rem; border-left: 5px solid #FFD700;
-            text-align: center; min-height: 150px;
-            display: flex; align-items: center; justify-content: center;
-            flex-direction: column;
-        }
-        .message-text {
-            font-size: 1.2rem; font-style: italic; color: #FFFFFF;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-            margin-bottom: 1rem; line-height: 1.6;
-        }
-        .message-time {
-            font-size: 0.9rem; color: #FFD700; font-weight: bold;
-        }
-        
-        /* Interactive Tools Section */
-        .tools-section {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem; margin-bottom: 4rem;
-        }
-        .tool-card {
-            background: rgba(0, 0, 0, 0.8); border: 2px solid #68ae34;
-            border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(104, 174, 52, 0.3);
-        }
-        .tool-title {
-            font-size: 1.4rem; color: #FFD700; margin-bottom: 1rem;
-            display: flex; align-items: center; gap: 0.5rem;
-        }
-        
-        /* Angel Number Calculator */
-        .calculator-input {
-            width: 100%; padding: 1rem; border: 2px solid #68ae34;
-            border-radius: 10px; background: rgba(255, 255, 255, 0.1);
-            color: white; font-size: 1rem; margin-bottom: 1rem;
-        }
-        .calculator-input::placeholder { color: rgba(255, 255, 255, 0.7); }
-        .calculate-btn {
-            width: 100%; background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #1a0d33; border: none; padding: 1rem; border-radius: 10px;
-            font-size: 1rem; font-weight: bold; cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .calculate-btn:hover {
-            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
-        }
-        .calculation-result {
-            margin-top: 1rem; padding: 1rem; background: rgba(255, 215, 0, 0.1);
-            border: 1px solid #FFD700; border-radius: 10px; display: none;
-        }
-        
-        /* Oracle Cards */
-        .oracle-card {
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05));
-            border: 3px solid #FFD700; border-radius: 20px; padding: 2rem;
-            text-align: center; cursor: pointer; transition: all 0.3s ease;
-            min-height: 200px; display: flex; align-items: center;
-            justify-content: center; flex-direction: column;
-        }
-        .oracle-card:hover {
-            transform: rotateY(5deg) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
-        }
-        .card-back {
-            font-size: 3rem; margin-bottom: 1rem;
-        }
-        .card-message {
-            font-size: 1.1rem; font-style: italic; color: #FFFFFF;
-            display: none; line-height: 1.6;
-        }
-        .draw-card-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
-            border: none; padding: 1rem 2rem; border-radius: 25px;
-            font-weight: bold; cursor: pointer; margin-top: 1rem;
-            transition: all 0.3s ease;
-        }
-        .draw-card-btn:hover {
-            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
-        }
-        
-        /* Commandments Section */
-        .commandments-section {
-            background: rgba(0, 0, 0, 0.8); border: 2px solid #FFD700;
-            border-radius: 20px; padding: 3rem; margin-bottom: 4rem;
-            backdrop-filter: blur(10px);
-        }
-        .commandments-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem; margin-top: 2rem;
-        }
-        .commandment-item {
-            background: linear-gradient(45deg, rgba(104, 174, 52, 0.1), rgba(255, 215, 0, 0.05));
-            border-left: 5px solid #68ae34; border-radius: 10px;
-            padding: 1.5rem; transition: all 0.3s ease;
-        }
-        .commandment-item:hover {
-            transform: translateX(10px); border-left-color: #FFD700;
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(104, 174, 52, 0.1));
-        }
-        .commandment-text {
-            font-size: 1.1rem; color: #FFFFFF; font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        .commandment-description {
-            font-size: 0.9rem; color: #E8E8FF; opacity: 0.9; line-height: 1.4;
-        }
-        
-        /* Meditation Section */
-        .meditation-section {
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(104, 174, 52, 0.1));
-            border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 25px;
-            padding: 3rem; margin-bottom: 4rem; text-align: center;
-        }
-        .meditation-player {
-            background: rgba(0, 0, 0, 0.5); border-radius: 20px;
-            padding: 2rem; margin: 2rem 0;
-        }
-        .play-meditation-btn {
-            background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
-            border: none; padding: 1rem 2rem; border-radius: 50px;
-            font-size: 1.2rem; font-weight: bold; cursor: pointer;
-            transition: all 0.3s ease; margin: 1rem;
-        }
-        .play-meditation-btn:hover {
-            transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
-        }
-        .affirmation-text {
-            font-size: 1.3rem; font-style: italic; color: #FFFFFF;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-            line-height: 1.8; margin: 2rem 0;
-        }
-        
-        /* Community Section */
-        .community-section {
-            background: rgba(0, 0, 0, 0.8); border: 2px solid #68ae34;
-            border-radius: 20px; padding: 3rem; margin-bottom: 4rem;
-            backdrop-filter: blur(10px);
-        }
-        .intention-form {
-            background: rgba(255, 255, 255, 0.05); border-radius: 15px;
-            padding: 2rem; margin: 2rem 0;
-        }
-        .intention-input {
-            width: 100%; padding: 1rem; border: 2px solid #68ae34;
-            border-radius: 10px; background: rgba(255, 255, 255, 0.1);
-            color: white; font-size: 1rem; margin-bottom: 1rem;
-            min-height: 100px; resize: vertical;
-        }
-        .submit-intention-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
-            border: none; padding: 1rem 2rem; border-radius: 25px;
-            font-weight: bold; cursor: pointer; transition: all 0.3s ease;
-        }
-        .submit-intention-btn:hover {
-            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
-        }
-        .intention-board {
-            margin-top: 2rem;
-        }
-        .intention-item {
-            background: rgba(255, 215, 0, 0.1); border: 1px solid #FFD700;
-            border-radius: 10px; padding: 1rem; margin-bottom: 1rem;
-            border-left: 5px solid #68ae34;
-        }
-        
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.95); border-top: 3px solid #FFD700;
-            padding: 2rem; margin-top: 3rem; text-align: center;
-        }
-        .footer-links {
-            display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            color: #FFD700; text-decoration: none; font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover { color: #FFFFFF; }
-        
-        .get-613-btn {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #1a0d33; border: none; padding: 1rem 2rem;
-            border-radius: 50px; font-size: 1.1rem; font-weight: bold;
-            cursor: pointer; transition: all 0.3s ease;
-            margin: 1rem auto; display: block;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-            animation: coinGlow 2s ease-in-out infinite alternate;
-        }
-        .get-613-btn:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
-        }
-        @keyframes coinGlow {
-            0% { box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4); }
-            100% { box-shadow: 0 5px 20px rgba(255, 215, 0, 0.7); }
-        }
-
-        /* Phase 1 Enhancements - Progressive Loading Animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        
-        .scroll-fade {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .scroll-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Enhanced Micro-animations */
-        .enhanced-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .enhanced-hover:hover {
-            transform: translateY(-3px) scale(1.02);
-        }
-        
-        .pulse-gentle {
-            animation: pulseGentle 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGentle {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
-        .bounce-subtle {
-            transition: transform 0.2s ease;
-        }
-        
-        .bounce-subtle:active {
-            transform: scale(0.98);
-        }
-        
-        /* Copy button animations */
-        .copy-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d);
-            color: white;
-            border: none;
-            padding: 0.4rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-left: 0.5rem;
-            opacity: 0.8;
-        }
-        
-        .copy-btn:hover {
-            opacity: 1;
-            transform: scale(1
+</html>
