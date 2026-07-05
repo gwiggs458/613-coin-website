@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a1233, #1b2d4e, #2c4a7a, #68ae34);
+            background: linear-gradient(135deg, #000000, #0d0d0d, #1a1508, #3d2e0a);
             background-size: 400% 400%;
             animation: gradientShift 12s ease infinite;
             color: white;
@@ -25,10 +25,10 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.3) 2px, transparent 2px),
                 radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.2) 1px, transparent 1px),
-                radial-gradient(circle at 60% 70%, rgba(104, 174, 52, 0.15) 1.5px, transparent 1.5px);
+                radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 60% 70%, rgba(156, 122, 60, 0.15) 1.5px, transparent 1.5px);
             background-size: 100px 100px, 150px 150px, 200px 200px, 120px 120px;
             animation: divineFloat 30s linear infinite;
             pointer-events: none;
@@ -51,9 +51,9 @@
             width: 100%;
             height: 100%;
             background: 
-                conic-gradient(from 0deg at 25% 25%, transparent 70%, rgba(255, 215, 0, 0.08) 90%, transparent),
+                conic-gradient(from 0deg at 25% 25%, transparent 70%, rgba(212, 175, 55, 0.08) 90%, transparent),
                 conic-gradient(from 180deg at 75% 75%, transparent 70%, rgba(255, 255, 255, 0.06) 90%, transparent),
-                conic-gradient(from 90deg at 50% 50%, transparent 80%, rgba(104, 174, 52, 0.05) 95%, transparent);
+                conic-gradient(from 90deg at 50% 50%, transparent 80%, rgba(156, 122, 60, 0.05) 95%, transparent);
             background-size: 400px 400px, 350px 350px, 500px 500px;
             animation: angelicRotation 45s linear infinite;
             pointer-events: none;
@@ -77,10 +77,10 @@
             height: 200%;
             transform: translate(-50%, -50%);
             background: 
-                linear-gradient(45deg, transparent 49%, rgba(255, 215, 0, 0.08) 50%, transparent 51%),
+                linear-gradient(45deg, transparent 49%, rgba(212, 175, 55, 0.08) 50%, transparent 51%),
                 linear-gradient(-45deg, transparent 49%, rgba(255, 255, 255, 0.04) 50%, transparent 51%),
-                linear-gradient(135deg, transparent 49%, rgba(255, 215, 0, 0.06) 50%, transparent 51%),
-                linear-gradient(-135deg, transparent 49%, rgba(104, 174, 52, 0.04) 50%, transparent 51%);
+                linear-gradient(135deg, transparent 49%, rgba(212, 175, 55, 0.06) 50%, transparent 51%),
+                linear-gradient(-135deg, transparent 49%, rgba(156, 122, 60, 0.04) 50%, transparent 51%);
             background-size: 150px 150px, 200px 200px, 180px 180px, 220px 220px;
             animation: lightRaysRotation 35s linear infinite;
             pointer-events: none;
@@ -100,9 +100,9 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 30% 70%, transparent 30px, rgba(255, 215, 0, 0.08) 31px, rgba(255, 215, 0, 0.08) 32px, transparent 33px),
+                radial-gradient(circle at 30% 70%, transparent 30px, rgba(212, 175, 55, 0.08) 31px, rgba(212, 175, 55, 0.08) 32px, transparent 33px),
                 radial-gradient(circle at 70% 30%, transparent 40px, rgba(255, 255, 255, 0.06) 41px, rgba(255, 255, 255, 0.06) 42px, transparent 43px),
-                radial-gradient(circle at 20% 20%, transparent 25px, rgba(104, 174, 52, 0.05) 26px, rgba(104, 174, 52, 0.05) 27px, transparent 28px);
+                radial-gradient(circle at 20% 20%, transparent 25px, rgba(156, 122, 60, 0.05) 26px, rgba(156, 122, 60, 0.05) 27px, transparent 28px);
             background-size: 300px 300px, 250px 250px, 200px 200px;
             animation: geometryPulse 25s ease-in-out infinite;
             pointer-events: none;
@@ -136,7 +136,7 @@
         }
         .divine-light {
             position: absolute; width: 2px; height: 100px;
-            background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.3), transparent);
+            background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3), transparent);
             animation: lightRay 8s ease-in-out infinite;
         }
         @keyframes lightRay {
@@ -148,8 +148,8 @@
         .header {
             position: fixed; top: 0; width: 100%;
             background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
-            border-bottom: 3px solid #FFD700; z-index: 1000;
-            padding: 1rem 2rem; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+            border-bottom: 3px solid #D4AF37; z-index: 1000;
+            padding: 1rem 2rem; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
         }
         .nav {
             display: flex; justify-content: space-between; align-items: center;
@@ -157,17 +157,17 @@
         }
         .logo {
             display: flex; align-items: center; font-size: 1.4rem;
-            font-weight: bold; color: #FFD700;
+            font-weight: bold; color: #D4AF37;
         }
         .coin-icon {
             width: 50px; height: 50px;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
+            background: linear-gradient(45deg, #D4AF37, #B8860B);
             border-radius: 50%; display: flex; align-items: center;
             justify-content: center; margin-right: 12px;
-            font-size: 16px; font-weight: 900; color: #1a0d33;
+            font-size: 16px; font-weight: 900; color: #0d0d0d;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            border: 2px solid #68ae34;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            border: 2px solid #9C7A3C;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -181,8 +181,8 @@
             border: 1px solid transparent;
         }
         .nav-links a:hover, .nav-links a.active {
-            color: #FFD700; background: rgba(255, 215, 0, 0.1);
-            border-color: #FFD700; transform: translateY(-2px);
+            color: #D4AF37; background: rgba(212, 175, 55, 0.1);
+            border-color: #D4AF37; transform: translateY(-2px);
         }
         
         /* Main Content */
@@ -195,14 +195,14 @@
         /* Hero Section */
         .hero-section {
             text-align: center; margin-bottom: 4rem;
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(255, 215, 0, 0.1));
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(212, 175, 55, 0.1));
             border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 25px;
             padding: 4rem 2rem; position: relative; overflow: hidden;
         }
         .hero-section::before {
             content: ''; position: absolute; top: -50%; left: -50%;
             width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
             animation: rotate 30s linear infinite;
         }
         @keyframes rotate {
@@ -212,10 +212,10 @@
         .hero-content { position: relative; z-index: 2; }
         .angel-halo {
             width: 150px; height: 150px; margin: 0 auto 2rem;
-            border: 3px solid #FFD700; border-radius: 50%;
+            border: 3px solid #D4AF37; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
             animation: pulse 3s ease-in-out infinite;
             position: relative;
             overflow: hidden;
@@ -226,15 +226,15 @@
             top: 0; left: 0;
         }
         @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
-            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(212, 175, 55, 0.8); }
         }
         .page-title {
             font-size: 3.5rem; margin-bottom: 1rem;
-            background: linear-gradient(45deg, #FFD700, #FFFFFF, #FFD700, #FFFFFF);
+            background: linear-gradient(45deg, #D4AF37, #FFFFFF, #D4AF37, #FFFFFF);
             background-size: 400% 400%; animation: shimmer 4s ease-in-out infinite;
             background-clip: text; -webkit-background-clip: text; color: transparent;
-            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
             font-weight: 900; filter: brightness(1.3);
         }
         @keyframes shimmer {
@@ -249,7 +249,7 @@
         }
         .page-description {
             font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; 
-            color: #E8E8FF; line-height: 1.6;
+            color: #EDE6D3; line-height: 1.6;
         }
         
         /* Content Grid */
@@ -260,55 +260,55 @@
         
         /* Angel Number Deep Dive */
         .angel-number-section {
-            background: rgba(0, 0, 0, 0.7); border: 2px solid #FFD700;
+            background: rgba(0, 0, 0, 0.7); border: 2px solid #D4AF37;
             border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
         }
         .section-title {
-            font-size: 1.8rem; color: #FFD700; margin-bottom: 1.5rem;
+            font-size: 1.8rem; color: #D4AF37; margin-bottom: 1.5rem;
             display: flex; align-items: center; gap: 0.5rem;
-            border-bottom: 2px solid #FFD700; padding-bottom: 0.5rem;
+            border-bottom: 2px solid #D4AF37; padding-bottom: 0.5rem;
         }
         .number-breakdown {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0;
         }
         .number-card {
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05));
-            border: 2px solid #FFD700; border-radius: 15px; padding: 1.5rem;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid #D4AF37; border-radius: 15px; padding: 1.5rem;
             text-align: center; transition: transform 0.3s ease;
         }
         .number-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
         .number-digit {
-            font-size: 3rem; font-weight: 900; color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            font-size: 3rem; font-weight: 900; color: #D4AF37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
         }
         .number-meaning {
-            font-size: 0.9rem; color: #E8E8FF; margin-top: 0.5rem; line-height: 1.4;
+            font-size: 0.9rem; color: #EDE6D3; margin-top: 0.5rem; line-height: 1.4;
         }
         
         /* Daily Messages */
         .daily-messages {
-            background: rgba(0, 0, 0, 0.7); border: 2px solid #68ae34;
+            background: rgba(0, 0, 0, 0.7); border: 2px solid #9C7A3C;
             border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
         }
         .message-tabs {
             display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;
         }
         .tab-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
+            background: linear-gradient(45deg, #9C7A3C, #C9A961); color: white;
             border: none; padding: 0.8rem 1.5rem; border-radius: 25px;
             font-weight: bold; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(104, 174, 52, 0.3);
+            box-shadow: 0 5px 15px rgba(156, 122, 60, 0.3);
         }
         .tab-btn:hover, .tab-btn.active {
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
+            box-shadow: 0 8px 25px rgba(156, 122, 60, 0.5);
         }
         .message-content {
             background: rgba(255, 255, 255, 0.05); border-radius: 15px;
-            padding: 2rem; border-left: 5px solid #FFD700;
+            padding: 2rem; border-left: 5px solid #D4AF37;
             text-align: center; min-height: 150px;
             display: flex; align-items: center; justify-content: center;
             flex-direction: column;
@@ -319,7 +319,7 @@
             margin-bottom: 1rem; line-height: 1.6;
         }
         .message-time {
-            font-size: 0.9rem; color: #FFD700; font-weight: bold;
+            font-size: 0.9rem; color: #D4AF37; font-weight: bold;
         }
         
         /* Interactive Tools Section */
@@ -328,51 +328,51 @@
             gap: 2rem; margin-bottom: 4rem;
         }
         .tool-card {
-            background: rgba(0, 0, 0, 0.8); border: 2px solid #68ae34;
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #9C7A3C;
             border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);
             transition: transform 0.3s ease;
         }
         .tool-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(104, 174, 52, 0.3);
+            box-shadow: 0 15px 40px rgba(156, 122, 60, 0.3);
         }
         .tool-title {
-            font-size: 1.4rem; color: #FFD700; margin-bottom: 1rem;
+            font-size: 1.4rem; color: #D4AF37; margin-bottom: 1rem;
             display: flex; align-items: center; gap: 0.5rem;
         }
         
         /* Angel Number Calculator */
         .calculator-input {
-            width: 100%; padding: 1rem; border: 2px solid #68ae34;
+            width: 100%; padding: 1rem; border: 2px solid #9C7A3C;
             border-radius: 10px; background: rgba(255, 255, 255, 0.1);
             color: white; font-size: 1rem; margin-bottom: 1rem;
         }
         .calculator-input::placeholder { color: rgba(255, 255, 255, 0.7); }
         .calculate-btn {
-            width: 100%; background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #1a0d33; border: none; padding: 1rem; border-radius: 10px;
+            width: 100%; background: linear-gradient(45deg, #D4AF37, #B8860B);
+            color: #0d0d0d; border: none; padding: 1rem; border-radius: 10px;
             font-size: 1rem; font-weight: bold; cursor: pointer;
             transition: all 0.3s ease;
         }
         .calculate-btn:hover {
-            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
         }
         .calculation-result {
-            margin-top: 1rem; padding: 1rem; background: rgba(255, 215, 0, 0.1);
-            border: 1px solid #FFD700; border-radius: 10px; display: none;
+            margin-top: 1rem; padding: 1rem; background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #D4AF37; border-radius: 10px; display: none;
         }
         
         /* Oracle Cards */
         .oracle-card {
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05));
-            border: 3px solid #FFD700; border-radius: 20px; padding: 2rem;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(255, 255, 255, 0.05));
+            border: 3px solid #D4AF37; border-radius: 20px; padding: 2rem;
             text-align: center; cursor: pointer; transition: all 0.3s ease;
             min-height: 200px; display: flex; align-items: center;
             justify-content: center; flex-direction: column;
         }
         .oracle-card:hover {
             transform: rotateY(5deg) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
         }
         .card-back {
             font-size: 3rem; margin-bottom: 1rem;
@@ -382,18 +382,18 @@
             display: none; line-height: 1.6;
         }
         .draw-card-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
+            background: linear-gradient(45deg, #9C7A3C, #C9A961); color: white;
             border: none; padding: 1rem 2rem; border-radius: 25px;
             font-weight: bold; cursor: pointer; margin-top: 1rem;
             transition: all 0.3s ease;
         }
         .draw-card-btn:hover {
-            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(156, 122, 60, 0.5);
         }
         
         /* Commandments Section */
         .commandments-section {
-            background: rgba(0, 0, 0, 0.8); border: 2px solid #FFD700;
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #D4AF37;
             border-radius: 20px; padding: 3rem; margin-bottom: 4rem;
             backdrop-filter: blur(10px);
         }
@@ -402,25 +402,25 @@
             gap: 2rem; margin-top: 2rem;
         }
         .commandment-item {
-            background: linear-gradient(45deg, rgba(104, 174, 52, 0.1), rgba(255, 215, 0, 0.05));
-            border-left: 5px solid #68ae34; border-radius: 10px;
+            background: linear-gradient(45deg, rgba(156, 122, 60, 0.1), rgba(212, 175, 55, 0.05));
+            border-left: 5px solid #9C7A3C; border-radius: 10px;
             padding: 1.5rem; transition: all 0.3s ease;
         }
         .commandment-item:hover {
-            transform: translateX(10px); border-left-color: #FFD700;
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(104, 174, 52, 0.1));
+            transform: translateX(10px); border-left-color: #D4AF37;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(156, 122, 60, 0.1));
         }
         .commandment-text {
             font-size: 1.1rem; color: #FFFFFF; font-weight: bold;
             margin-bottom: 0.5rem;
         }
         .commandment-description {
-            font-size: 0.9rem; color: #E8E8FF; opacity: 0.9; line-height: 1.4;
+            font-size: 0.9rem; color: #EDE6D3; opacity: 0.9; line-height: 1.4;
         }
         
         /* Meditation Section */
         .meditation-section {
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(104, 174, 52, 0.1));
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(156, 122, 60, 0.1));
             border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 25px;
             padding: 3rem; margin-bottom: 4rem; text-align: center;
         }
@@ -429,13 +429,13 @@
             padding: 2rem; margin: 2rem 0;
         }
         .play-meditation-btn {
-            background: linear-gradient(45deg, #FFD700, #FFA500); color: #1a0d33;
+            background: linear-gradient(45deg, #D4AF37, #B8860B); color: #0d0d0d;
             border: none; padding: 1rem 2rem; border-radius: 50px;
             font-size: 1.2rem; font-weight: bold; cursor: pointer;
             transition: all 0.3s ease; margin: 1rem;
         }
         .play-meditation-btn:hover {
-            transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+            transform: scale(1.05); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
         }
         .affirmation-text {
             font-size: 1.3rem; font-style: italic; color: #FFFFFF;
@@ -445,7 +445,7 @@
         
         /* Community Section */
         .community-section {
-            background: rgba(0, 0, 0, 0.8); border: 2px solid #68ae34;
+            background: rgba(0, 0, 0, 0.8); border: 2px solid #9C7A3C;
             border-radius: 20px; padding: 3rem; margin-bottom: 4rem;
             backdrop-filter: blur(10px);
         }
@@ -454,31 +454,31 @@
             padding: 2rem; margin: 2rem 0;
         }
         .intention-input {
-            width: 100%; padding: 1rem; border: 2px solid #68ae34;
+            width: 100%; padding: 1rem; border: 2px solid #9C7A3C;
             border-radius: 10px; background: rgba(255, 255, 255, 0.1);
             color: white; font-size: 1rem; margin-bottom: 1rem;
             min-height: 100px; resize: vertical;
         }
         .submit-intention-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d); color: white;
+            background: linear-gradient(45deg, #9C7A3C, #C9A961); color: white;
             border: none; padding: 1rem 2rem; border-radius: 25px;
             font-weight: bold; cursor: pointer; transition: all 0.3s ease;
         }
         .submit-intention-btn:hover {
-            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(104, 174, 52, 0.5);
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(156, 122, 60, 0.5);
         }
         .intention-board {
             margin-top: 2rem;
         }
         .intention-item {
-            background: rgba(255, 215, 0, 0.1); border: 1px solid #FFD700;
+            background: rgba(212, 175, 55, 0.1); border: 1px solid #D4AF37;
             border-radius: 10px; padding: 1rem; margin-bottom: 1rem;
-            border-left: 5px solid #68ae34;
+            border-left: 5px solid #9C7A3C;
         }
         
         /* Footer */
         .footer {
-            background: rgba(0, 0, 0, 0.95); border-top: 3px solid #FFD700;
+            background: rgba(0, 0, 0, 0.95); border-top: 3px solid #D4AF37;
             padding: 2rem; margin-top: 3rem; text-align: center;
         }
         .footer-links {
@@ -486,27 +486,27 @@
             flex-wrap: wrap;
         }
         .footer-links a {
-            color: #FFD700; text-decoration: none; font-weight: bold;
+            color: #D4AF37; text-decoration: none; font-weight: bold;
             transition: color 0.3s ease;
         }
         .footer-links a:hover { color: #FFFFFF; }
         
         .get-613-btn {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #1a0d33; border: none; padding: 1rem 2rem;
+            background: linear-gradient(45deg, #D4AF37, #B8860B);
+            color: #0d0d0d; border: none; padding: 1rem 2rem;
             border-radius: 50px; font-size: 1.1rem; font-weight: bold;
             cursor: pointer; transition: all 0.3s ease;
             margin: 1rem auto; display: block;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
             animation: coinGlow 2s ease-in-out infinite alternate;
         }
         .get-613-btn:hover {
             transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
         }
         @keyframes coinGlow {
-            0% { box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4); }
-            100% { box-shadow: 0 5px 20px rgba(255, 215, 0, 0.7); }
+            0% { box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+            100% { box-shadow: 0 5px 20px rgba(212, 175, 55, 0.7); }
         }
 
         /* Phase 1 Enhancements - Progressive Loading Animations */
@@ -553,7 +553,7 @@
         
         /* Copy button animations */
         .copy-btn {
-            background: linear-gradient(45deg, #68ae34, #9dd66d);
+            background: linear-gradient(45deg, #9C7A3C, #C9A961);
             color: white;
             border: none;
             padding: 0.4rem 0.8rem;
@@ -569,12 +569,12 @@
         .copy-btn:hover {
             opacity: 1;
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(104, 174, 52, 0.4);
+            box-shadow: 0 4px 12px rgba(156, 122, 60, 0.4);
         }
         
         .copy-success {
-            background: linear-gradient(45deg, #FFD700, #FFA500) !important;
-            color: #1a0d33 !important;
+            background: linear-gradient(45deg, #D4AF37, #B8860B) !important;
+            color: #0d0d0d !important;
         }
 
         @media (max-width: 768px) {
@@ -624,7 +624,7 @@
         <section class="hero-section scroll-fade">
             <div class="hero-content">
                 <div class="angel-halo pulse-gentle">
-                    <img src="images/613coin.png" alt="613 Coin" onerror="this.src='images/613coin.jpg'; this.onerror=function(){this.parentNode.innerHTML='613';}">
+                    <img src="images/Angel 613 Face only.png" alt="Angel 613" onerror="this.src='images/613coin.png'; this.onerror=function(){this.src='images/613coin.jpg'; this.onerror=function(){this.parentNode.innerHTML='613';}};">
                 </div>
                 <h1 class="page-title fade-in">
                     ANGEL WISDOM & DIVINE ENLIGHTENMENT
@@ -644,7 +644,7 @@
                 <h2 class="section-title">
                     🔢 613 ANGEL NUMBER DEEP DIVE
                 </h2>
-                <p style="color: #E8E8FF; margin-bottom: 2rem; line-height: 1.6;">
+                <p style="color: #EDE6D3; margin-bottom: 2rem; line-height: 1.6;">
                     Angel number 613 carries powerful vibrations of spiritual alignment, new opportunities, and divine enlightenment. 
                     Each digit contributes its unique energy to create a message of transformation and abundance.
                 </p>
@@ -673,8 +673,8 @@
                     </div>
                 </div>
                 
-                <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700; border-radius: 15px; padding: 1.5rem; margin-top: 2rem;">
-                    <h3 style="color: #FFD700; margin-bottom: 1rem;">🕊️ Biblical Connection</h3>
+                <div style="background: rgba(212, 175, 55, 0.1); border: 2px solid #D4AF37; border-radius: 15px; padding: 1.5rem; margin-top: 2rem;">
+                    <h3 style="color: #D4AF37; margin-bottom: 1rem;">🕊️ Biblical Connection</h3>
                     <p style="color: #FFFFFF; line-height: 1.6;">
                         The number 613 corresponds to the 613 commandments (mitzvot) in Jewish tradition, 
                         representing the complete spiritual framework for living a meaningful, ethical life. 
@@ -684,7 +684,7 @@
                 
                 <div style="text-align: center; margin-top: 2rem;">
                     <button class="get-613-btn bounce-subtle" onclick="window.open('https://www.dextools.io/app/en/polygon/pair-explorer/0x87be9de4de0a06b36dcb12789f4a18e3661916f4?t=1754679478988', '_blank')">
-                        🪙 GET 613 COIN
+                        🪙 613 COIN
                     </button>
                 </div>
             </section>
@@ -709,11 +709,11 @@
                 </div>
                 
                 <!-- 613 Coin Logo Section -->
-                <div style="background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 1.5rem; margin-top: 1rem; text-align: center; border: 1px solid rgba(255, 215, 0, 0.2);">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: #1a0d33; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); border: 2px solid #68ae34; box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4); position: relative; margin: 0 auto 1rem; overflow: hidden;">
+                <div style="background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 1.5rem; margin-top: 1rem; text-align: center; border: 1px solid rgba(212, 175, 55, 0.2);">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #D4AF37, #B8860B); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: #0d0d0d; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); border: 2px solid #9C7A3C; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); position: relative; margin: 0 auto 1rem; overflow: hidden;">
                         <img src="images/613coin.png" alt="613 Coin" onerror="this.src='images/613coin.jpg'; this.onerror=function(){this.parentNode.innerHTML='613';}" style="width: 80%; height: 80%; object-fit: contain; border-radius: 50%; margin: 10%;">
                     </div>
-                    <div style="font-size: 0.85rem; color: #E8E8FF; line-height: 1.4;">
+                    <div style="font-size: 0.85rem; color: #EDE6D3; line-height: 1.4;">
                         🙏 <strong>Spiritual growth</strong><br>
                         💝 <strong>Serving others</strong><br>
                         ⏰ <strong>Divine patience</strong><br>
@@ -723,8 +723,8 @@
                 </div>
                 
                 <!-- 613 Coin to the Moon -->
-                <div style="background: rgba(68, 174, 52, 0.1); border-radius: 10px; padding: 1rem; margin-top: 1rem; text-align: center; border: 1px solid rgba(68, 174, 52, 0.3);">
-                    <div style="font-size: 1rem; color: #FFD700; font-weight: bold;">
+                <div style="background: rgba(156, 122, 60, 0.1); border-radius: 10px; padding: 1rem; margin-top: 1rem; text-align: center; border: 1px solid rgba(156, 122, 60, 0.3);">
+                    <div style="font-size: 1rem; color: #D4AF37; font-weight: bold;">
                         613coin to the Moon 🌙
                     </div>
                 </div>
@@ -736,7 +736,7 @@
             <!-- Angel Number Calculator -->
             <div class="tool-card enhanced-hover">
                 <h3 class="tool-title">🔮 Angel Number Calculator</h3>
-                <p style="color: #E8E8FF; margin-bottom: 1.5rem;">
+                <p style="color: #EDE6D3; margin-bottom: 1.5rem;">
                     Enter a significant date or number to receive personalized angel enlightenment for your crypto journey.
                 </p>
                 <input type="text" class="calculator-input" id="numberInput" placeholder="Enter a date (MM/DD/YYYY) or number...">
@@ -744,8 +744,8 @@
                 <div class="calculation-result" id="calculationResult"></div>
                 
                 <!-- 613 Coin to the Moon -->
-                <div style="background: rgba(68, 174, 52, 0.1); border-radius: 10px; padding: 1rem; margin-top: 1.5rem; text-align: center; border: 1px solid rgba(68, 174, 52, 0.3);">
-                    <div style="font-size: 1rem; color: #FFD700; font-weight: bold;">
+                <div style="background: rgba(156, 122, 60, 0.1); border-radius: 10px; padding: 1rem; margin-top: 1.5rem; text-align: center; border: 1px solid rgba(156, 122, 60, 0.3);">
+                    <div style="font-size: 1rem; color: #D4AF37; font-weight: bold;">
                         613coin to the Moon 🌙
                     </div>
                 </div>
@@ -754,7 +754,7 @@
             <!-- Oracle Cards -->
             <div class="tool-card enhanced-hover">
                 <h3 class="tool-title">🃏 Daily Oracle Card</h3>
-                <p style="color: #E8E8FF; margin-bottom: 1.5rem;">
+                <p style="color: #EDE6D3; margin-bottom: 1.5rem;">
                     Draw your daily oracle card for spiritual insight and crypto enlightenment from the angels.
                 </p>
                 <div class="oracle-card pulse-gentle" id="oracleCard" onclick="drawCard()">
@@ -769,20 +769,20 @@
             <!-- Synchronicity Tracker -->
             <div class="tool-card enhanced-hover">
                 <h3 class="tool-title">📊 Angel Number Tracker</h3>
-                <p style="color: #E8E8FF; margin-bottom: 1.5rem;">
+                <p style="color: #EDE6D3; margin-bottom: 1.5rem;">
                     Track when you encounter 613 and other angel numbers in your daily life.
                 </p>
                 <div style="background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 1.5rem;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
                         <span>Today's 613 Sightings:</span>
-                        <span style="color: #FFD700; font-weight: bold;" id="sightingCount">3</span>
+                        <span style="color: #D4AF37; font-weight: bold;" id="sightingCount">3</span>
                     </div>
                     <button class="calculate-btn bounce-subtle" onclick="addSighting()">➕ I Saw 613!</button>
                     
                     <!-- Angel Goals -->
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(104, 174, 52, 0.1); border-radius: 8px; border: 1px solid rgba(104, 174, 52, 0.3);">
-                        <h4 style="color: #FFD700; margin-bottom: 0.8rem; font-size: 1rem;">✨ Angel Goals</h4>
-                        <div style="font-size: 0.85rem; color: #E8E8FF; line-height: 1.4; text-align: left;">
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(156, 122, 60, 0.1); border-radius: 8px; border: 1px solid rgba(156, 122, 60, 0.3);">
+                        <h4 style="color: #D4AF37; margin-bottom: 0.8rem; font-size: 1rem;">✨ Angel Goals</h4>
+                        <div style="font-size: 0.85rem; color: #EDE6D3; line-height: 1.4; text-align: left;">
                             <strong>Spirituality</strong> (.0000000613) - beginning of the journey<br>
                             <strong>Enlightenment</strong> (.00000613) - deeper understanding<br>
                             <strong>Abundance</strong> (.000613) - full spiritual realization
@@ -793,7 +793,7 @@
             
             <div style="text-align: center; margin-top: 2rem;">
                 <button class="get-613-btn bounce-subtle" onclick="window.open('https://www.dextools.io/app/en/polygon/pair-explorer/0x87be9de4de0a06b36dcb12789f4a18e3661916f4?t=1754679478988', '_blank')">
-                    🪙 GET 613 COIN
+                    🪙 613 COIN
                 </button>
             </div>
         </section>
@@ -801,7 +801,7 @@
         <!-- 613 Commandments for Crypto -->
         <section class="commandments-section scroll-fade">
             <h2 class="section-title">📜 613 COMMANDMENTS FOR CRYPTO</h2>
-            <p style="color: #E8E8FF; margin-bottom: 2rem; text-align: center; font-size: 1.1rem;">
+            <p style="color: #EDE6D3; margin-bottom: 2rem; text-align: center; font-size: 1.1rem;">
                 Modern interpretations of ancient wisdom for the digital age. Live by these principles for spirituality and abundance.
             </p>
             <div class="commandments-grid">
@@ -846,19 +846,19 @@
 
         <!-- Meditation & Affirmations -->
         <section class="meditation-section scroll-fade">
-            <h2 class="section-title" style="color: #FFD700; text-align: center; border-bottom: none;">
+            <h2 class="section-title" style="color: #D4AF37; text-align: center; border-bottom: none;">
                 🧘‍♀️ 613 MEDITATION & AFFIRMATIONS
             </h2>
-            <p style="color: #E8E8FF; margin-bottom: 2rem; font-size: 1.1rem;">
+            <p style="color: #EDE6D3; margin-bottom: 2rem; font-size: 1.1rem;">
                 Align your energy with divine abundance through these powerful affirmations and guided meditation.
             </p>
             
             <div class="meditation-player enhanced-hover">
-                <h3 style="color: #FFD700; margin-bottom: 1rem;">🎵 Guided 613 Meditation</h3>
+                <h3 style="color: #D4AF37; margin-bottom: 1rem;">🎵 Guided 613 Meditation</h3>
                 <button class="play-meditation-btn bounce-subtle" onclick="toggleMeditation()" id="meditationBtn">
                     ▶️ Start Meditation (5 min)
                 </button>
-                <div id="meditationTimer" style="color: #FFD700; font-size: 1.2rem; margin-top: 1rem; display: none;">
+                <div id="meditationTimer" style="color: #D4AF37; font-size: 1.2rem; margin-top: 1rem; display: none;">
                     Time Remaining: <span id="timeDisplay">5:00</span>
                 </div>
             </div>
@@ -879,13 +879,13 @@
 
         <!-- Get 613 Coin CTA -->
         <section style="text-align: center; margin: 4rem 0;">
-            <div style="background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(104, 174, 52, 0.1)); border: 2px solid #FFD700; border-radius: 25px; padding: 2rem;">
-                <h2 style="color: #FFD700; margin-bottom: 1rem; font-size: 2rem;">✨ JOIN THE DIVINE JOURNEY</h2>
-                <p style="color: #E8E8FF; margin-bottom: 2rem; font-size: 1.2rem;">
+            <div style="background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(156, 122, 60, 0.1)); border: 2px solid #D4AF37; border-radius: 25px; padding: 2rem;">
+                <h2 style="color: #D4AF37; margin-bottom: 1rem; font-size: 2rem;">✨ JOIN THE DIVINE JOURNEY</h2>
+                <p style="color: #EDE6D3; margin-bottom: 2rem; font-size: 1.2rem;">
                     Align your journey with celestial wisdom. Get 613 Coin and become part of our angelic community.
                 </p>
                 <button class="get-613-btn" onclick="window.open('https://www.dextools.io/app/en/polygon/pair-explorer/0x87be9de4de0a06b36dcb12789f4a18e3661916f4?t=1754679478988', '_blank')" style="font-size: 1.3rem; padding: 1.2rem 3rem;">
-                    🪙 GET 613 COIN
+                    🪙 613 COIN
                 </button>
             </div>
         </section>
@@ -893,29 +893,29 @@
         <!-- Community Intention Board -->
         <section class="community-section scroll-fade">
             <h2 class="section-title">💫 COMMUNITY INTENTION BOARD</h2>
-            <p style="color: #E8E8FF; margin-bottom: 2rem; text-align: center;">
+            <p style="color: #EDE6D3; margin-bottom: 2rem; text-align: center;">
                 Share your positive intentions with the 613 Coin angel community. Together, we manifest abundance and spiritual growth.
             </p>
             
             <div class="intention-form">
-                <h3 style="color: #FFD700; margin-bottom: 1rem;">✨ Share Your Intention</h3>
+                <h3 style="color: #D4AF37; margin-bottom: 1rem;">✨ Share Your Intention</h3>
                 <textarea class="intention-input" id="intentionInput" placeholder="Write your intention for manifestation (e.g., 'I intend to use my crypto gains to help my family' or 'I seek guidance for wise investment decisions')..."></textarea>
                 <button class="submit-intention-btn" onclick="submitIntention()">🕊️ Send to the Angels</button>
             </div>
             
             <div class="intention-board">
-                <h3 style="color: #68ae34; margin-bottom: 1rem;">🙏 Recent Community Intentions</h3>
+                <h3 style="color: #9C7A3C; margin-bottom: 1rem;">🙏 Recent Community Intentions</h3>
                 <div class="intention-item">
-                    <strong style="color: #FFD700;">Anonymous Angel:</strong> "I intend to use my crypto success to support local animal shelters and spread love to creatures in need." 
-                    <span style="color: #68ae34; font-size: 0.8rem; float: right;">2 hours ago</span>
+                    <strong style="color: #D4AF37;">Anonymous Angel:</strong> "I intend to use my crypto success to support local animal shelters and spread love to creatures in need." 
+                    <span style="color: #9C7A3C; font-size: 0.8rem; float: right;">2 hours ago</span>
                 </div>
                 <div class="intention-item">
-                    <strong style="color: #FFD700;">Divine Investor:</strong> "Seeking guidance to make wise decisions that align with my spiritual values while building financial freedom."
-                    <span style="color: #68ae34; font-size: 0.8rem; float: right;">4 hours ago</span>
+                    <strong style="color: #D4AF37;">Divine Investor:</strong> "Seeking guidance to make wise decisions that align with my spiritual values while building financial freedom."
+                    <span style="color: #9C7A3C; font-size: 0.8rem; float: right;">4 hours ago</span>
                 </div>
                 <div class="intention-item">
-                    <strong style="color: #FFD700;">613 Believer:</strong> "I manifest abundance to help my parents retire comfortably and travel the world together."
-                    <span style="color: #68ae34; font-size: 0.8rem; float: right;">1 day ago</span>
+                    <strong style="color: #D4AF37;">613 Believer:</strong> "I manifest abundance to help my parents retire comfortably and travel the world together."
+                    <span style="color: #9C7A3C; font-size: 0.8rem; float: right;">1 day ago</span>
                 </div>
             </div>
         </section>
@@ -926,18 +926,18 @@
             <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
                 <div style="text-align: center;">
                     <div style="font-size: 8rem; margin-bottom: 1rem;" id="weeklyReadingIcon">🔮</div>
-                    <div style="color: #FFD700; font-weight: bold;" id="currentWeek">This Week</div>
+                    <div style="color: #D4AF37; font-weight: bold;" id="currentWeek">This Week</div>
                 </div>
                 <div id="weeklyReadingContent">
-                    <h3 style="color: #FFD700; margin-bottom: 1rem;" id="weeklyReadingTitle">✨ DIVINE ENLIGHTENMENT: PATIENCE & TRUST</h3>
+                    <h3 style="color: #D4AF37; margin-bottom: 1rem;" id="weeklyReadingTitle">✨ DIVINE ENLIGHTENMENT: PATIENCE & TRUST</h3>
                     <p style="color: #FFFFFF; line-height: 1.8; font-size: 1.1rem;" id="weeklyReadingText">
                         The angels remind you that divine timing is at work this week. Current market conditions are preparing you for greater abundance. 
                         Trust the process and stay aligned with your values. A significant opportunity will present itself when you least expect it, 
                         but most need it. Keep your heart open to receiving enlightenment through signs, synchronicities, and inner knowing.
                     </p>
-                    <div style="background: rgba(104, 174, 52, 0.1); border-radius: 10px; padding: 1rem; margin-top: 1rem;">
-                        <strong style="color: #68ae34;">Angel Action:</strong> 
-                        <span style="color: #E8E8FF;" id="weeklyReadingAction">Spend 5 minutes each morning in gratitude meditation before checking crypto prices.</span>
+                    <div style="background: rgba(156, 122, 60, 0.1); border-radius: 10px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: #9C7A3C;">Angel Action:</strong> 
+                        <span style="color: #EDE6D3;" id="weeklyReadingAction">Spend 5 minutes each morning in gratitude meditation before checking crypto prices.</span>
                     </div>
                 </div>
             </div>
@@ -946,29 +946,29 @@
         <!-- Sacred Geometry & Crypto -->
         <section class="angel-number-section scroll-fade">
             <h2 class="section-title">🔺 SACRED GEOMETRY & BLOCKCHAIN</h2>
-            <p style="color: #E8E8FF; margin-bottom: 2rem; line-height: 1.6;">
+            <p style="color: #EDE6D3; margin-bottom: 2rem; line-height: 1.6;">
                 Discover how blockchain technology mirrors divine mathematical patterns and sacred geometry principles.
             </p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700; border-radius: 15px; padding: 1.5rem; text-align: center;">
+                <div style="background: rgba(212, 175, 55, 0.1); border: 2px solid #D4AF37; border-radius: 15px; padding: 1.5rem; text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">⬡</div>
-                    <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Hexagonal Harmony</h4>
-                    <p style="color: #E8E8FF; font-size: 0.9rem;">
+                    <h4 style="color: #D4AF37; margin-bottom: 0.5rem;">Hexagonal Harmony</h4>
+                    <p style="color: #EDE6D3; font-size: 0.9rem;">
                         Blockchain networks form hexagonal patterns, mirroring nature's most efficient structures found in honeycombs and crystals.
                     </p>
                 </div>
-                <div style="background: rgba(104, 174, 52, 0.1); border: 2px solid #68ae34; border-radius: 15px; padding: 1.5rem; text-align: center;">
+                <div style="background: rgba(156, 122, 60, 0.1); border: 2px solid #9C7A3C; border-radius: 15px; padding: 1.5rem; text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">∞</div>
-                    <h4 style="color: #68ae34; margin-bottom: 0.5rem;">Infinite Connections</h4>
-                    <p style="color: #E8E8FF; font-size: 0.9rem;">
+                    <h4 style="color: #9C7A3C; margin-bottom: 0.5rem;">Infinite Connections</h4>
+                    <p style="color: #EDE6D3; font-size: 0.9rem;">
                         Decentralized networks reflect the infinite connectivity of divine consciousness and universal oneness.
                     </p>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.05); border: 2px solid #FFFFFF; border-radius: 15px; padding: 1.5rem; text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">🌀</div>
                     <h4 style="color: #FFFFFF; margin-bottom: 0.5rem;">Fibonacci Flows</h4>
-                    <p style="color: #E8E8FF; font-size: 0.9rem;">
+                    <p style="color: #EDE6D3; font-size: 0.9rem;">
                         Digital patterns often follow Fibonacci ratios, revealing the golden ratio's presence in natural mathematical sequences and sacred geometry.
                     </p>
                 </div>
@@ -986,27 +986,21 @@
 
         <!-- Join Our Community Section -->
         <div style="margin: 2rem 0;">
-            <h3 style="color: #FFD700; margin-bottom: 1rem; font-size: 1.3rem;">✨ Join Our Angelic Community</h3>
+            <h3 style="color: #D4AF37; margin-bottom: 1rem; font-size: 1.3rem;">✨ Join Our Angelic Community</h3>
             <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
                 <a href="https://x.com/613Coin" target="_blank" style="background: linear-gradient(45deg, #1DA1F2, #0d8bd9); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
                     𝕏 Follow on X
                 </a>
-                <a href="https://t.me/angel613coin" target="_blank" style="background: linear-gradient(45deg, #0088cc, #006bb3); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
-                    📱 Join Telegram
-                </a>
-                <a href="https://discord.gg/friends" target="_blank" style="background: linear-gradient(45deg, #5865F2, #4752C4); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
-                    💬 Join Discord
-                </a>
             </div>
         </div>
 
-        <div style="color: #68ae34; font-style: italic; margin-bottom: 1rem; font-size: 1.1rem;">
+        <div style="color: #9C7A3C; font-style: italic; margin-bottom: 1rem; font-size: 1.1rem;">
             "Let the angels guide your crypto journey with wisdom, love, and divine timing."
         </div>
         
         <!-- Entertainment Disclaimer -->
-        <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700; border-radius: 15px; padding: 1.5rem; margin: 2rem auto; max-width: 800px;">
-            <h3 style="color: #FFD700; text-align: center; margin-bottom: 1rem;">⭐ MEME COIN DISCLAIMER</h3>
+        <div style="background: rgba(212, 175, 55, 0.1); border: 2px solid #D4AF37; border-radius: 15px; padding: 1.5rem; margin: 2rem auto; max-width: 800px;">
+            <h3 style="color: #D4AF37; text-align: center; margin-bottom: 1rem;">⭐ MEME COIN DISCLAIMER</h3>
             <p style="color: #FFFFFF; text-align: center; line-height: 1.6; font-size: 0.9rem;">
                 <strong>613 COIN IS FOR ENTERTAINMENT PURPOSES ONLY.</strong> This is a meme coin with no intrinsic value or expectation of financial return. 
                 There is no formal team or roadmap. The coin is completely useless and for entertainment only. 
@@ -1329,11 +1323,11 @@
             };
             
             result.innerHTML = `
-                <h4 style="color: #FFD700; margin-bottom: 1rem;">Your Angel Number: ${sum}</h4>
+                <h4 style="color: #D4AF37; margin-bottom: 1rem;">Your Angel Number: ${sum}</h4>
                 <p style="color: #FFFFFF; line-height: 1.6;">${meanings[sum]}</p>
-                <div style="margin-top: 1rem; padding: 1rem; background: rgba(104, 174, 52, 0.1); border-radius: 8px;">
-                    <strong style="color: #68ae34;">Divine Message:</strong> 
-                    <span style="color: #E8E8FF;">The angels are guiding you toward this energy in your crypto journey for spiritual enlightenment.</span>
+                <div style="margin-top: 1rem; padding: 1rem; background: rgba(156, 122, 60, 0.1); border-radius: 8px;">
+                    <strong style="color: #9C7A3C;">Divine Message:</strong> 
+                    <span style="color: #EDE6D3;">The angels are guiding you toward this energy in your crypto journey for spiritual enlightenment.</span>
                 </div>
                 <button class="copy-btn" onclick="copyCalculation(${sum}, '${meanings[sum]}')" style="margin-top: 1rem;">📋 Copy Result</button>
             `;
@@ -1550,8 +1544,8 @@
             const newIntention = document.createElement('div');
             newIntention.className = 'intention-item';
             newIntention.innerHTML = `
-                <strong style="color: #FFD700;">Blessed Soul:</strong> "${intention.substring(0, 80)}${intention.length > 80 ? '...' : ''}"
-                <span style="color: #68ae34; font-size: 0.8rem; float: right;">Just now</span>
+                <strong style="color: #D4AF37;">Blessed Soul:</strong> "${intention.substring(0, 80)}${intention.length > 80 ? '...' : ''}"
+                <span style="color: #9C7A3C; font-size: 0.8rem; float: right;">Just now</span>
             `;
             board.insertBefore(newIntention, board.children[1]);
         }
